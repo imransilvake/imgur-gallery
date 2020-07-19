@@ -8,6 +8,7 @@ A simple and clean weather application built using React, Redux Toolkit and Mate
 - [X] Use of Redux Toolkit (RTK)
 - [X] Async Call to weather api using Redux-Thunk
 
+- [ ] add form hook in the app
 - [ ] favicon
 - [ ] unit tests
 - [ ] (Only Demo) create slice and save city state
