@@ -4,8 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 // initial state
 export const initialState = {
 	loading: false,
-	hasErrors: false,
-	data: []
+	data: [],
+	errors: null
 };
 
 // slice for data with reducers
@@ -13,23 +13,23 @@ const dataSlice = createSlice({
 	name: 'proxy',
 	initialState,
 	reducers: {
-		getData: (state) => {
+		dataLoading: (state) => {
 			state.loading = true;
 		},
-		getDataSuccess: (state, { payload }) => {
+		dataSuccess: (state, { payload }) => {
+			state.loading = false;
 			state.data = payload;
-			state.loading = false;
-			state.hasErrors = false;
+			state.errors = null;
 		},
-		getDataFailure: (state) => {
+		dataFailure: (state, { payload }) => {
 			state.loading = false;
-			state.hasErrors = true;
+			state.errors = payload;
 		}
 	}
 });
 
 // actions generated from the slice
-export const { getData, getDataSuccess, getDataFailure } = dataSlice.actions;
+export const { dataLoading, dataSuccess, dataFailure } = dataSlice.actions;
 
 // selector
 export const dataSelector = (state) => state.proxy;
@@ -46,7 +46,7 @@ export default dataSlice.reducer;
 export function fetchApi(api, payload) {
 	return async (dispatch) => {
 		// dispatch: start fetch process
-		dispatch(getData());
+		dispatch(dataLoading());
 
 		// query params
 		let url = api;
@@ -54,15 +54,21 @@ export function fetchApi(api, payload) {
 			url = `${api}${payload.queryParams}`;
 		}
 
+		// api call
 		try {
 			const response = await fetch(url);
 			const res = await response.json();
 
-			// dispatch: data fetched
-			dispatch(getDataSuccess(res));
+			// validate 200 status code
+			if (res['cod'] !== 200) {
+				throw res;
+			}
+
+			// dispatch: data
+			dispatch(dataSuccess(res));
 		} catch (error) {
-			// dispatch: fetch error
-			dispatch(getDataFailure());
+			// dispatch: error
+			dispatch(dataFailure(error));
 		}
 	};
 }

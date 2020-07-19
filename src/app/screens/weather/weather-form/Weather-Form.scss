@@ -1,0 +1,20 @@
+@import '../../../../assets/scss/base/index';
+
+.wf-form {
+	margin-top: 30px;
+
+	.wf-city-control {
+		display: flex;
+		margin: 0 auto;
+
+		.wf-city-select {
+			background-color: var(--c2);
+			border-radius: 2px;
+			box-shadow: 2px 1px 4px 1px var(--c3);
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+}

@@ -4,18 +4,35 @@ import { BrowserRouter } from 'react-router-dom';
 
 // app
 import AppRouter from './AppRouter';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+
+// theme setting
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#6fb98f',
+			contrastText: '#ffffff'
+		},
+		error: {
+			main: '#e74c3c'
+		}
+	}
+});
 
 const App = () => {
 	return (
-		<React.Suspense fallback={<div>...Loading</div>}>
-			<BrowserRouter>
-				{/* Header */}
+		<MuiThemeProvider theme={theme}>
+			<React.Suspense fallback={<LinearProgress />}>
+				<BrowserRouter>
+					{/* Header */}
 
-				<AppRouter />
+					<AppRouter />
 
-				{/* Footer */}
-			</BrowserRouter>
-		</React.Suspense>
+					{/* Footer */}
+				</BrowserRouter>
+			</React.Suspense>
+		</MuiThemeProvider>
 	);
 };
 export default App;
