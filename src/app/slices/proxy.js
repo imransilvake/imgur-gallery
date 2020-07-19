@@ -1,4 +1,4 @@
-// app
+// redux
 import { createSlice } from '@reduxjs/toolkit';
 
 // initial state
@@ -23,6 +23,7 @@ const dataSlice = createSlice({
 		},
 		dataFailure: (state, { payload }) => {
 			state.loading = false;
+			state.data = [];
 			state.errors = payload;
 		}
 	}

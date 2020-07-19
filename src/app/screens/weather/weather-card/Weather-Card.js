@@ -16,7 +16,6 @@ const WeatherCard = ({ city }) => {
 	const dispatch = useDispatch();
 	const { data, loading, errors } = useSelector(dataSelector);
 
-	// use effect
 	useEffect(() => {
 		// fetch weather data
 		const fetchWeatherData = () => {
