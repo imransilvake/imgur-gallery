@@ -1,5 +1,5 @@
 {
-    "name": "weather-forcast",
+    "name": "imgur-gallery",
     "version": "1.0.0",
     "private": true,
     "scripts": {
@@ -11,7 +11,8 @@
         "serve": "serve -s build",
         "lint:scss": "stylelint '**/*.scss'; exit 0",
         "lint:es": "eslint --ext .jsx --ext .js src/",
-        "test": "react-scripts test",
+        "test:run": "cypress run",
+        "test:open": "cypress open",
         "eject": "react-scripts eject"
     },
     "dependencies": {
@@ -31,6 +32,7 @@
         "redux-thunk": "^2.3.0"
     },
     "devDependencies": {
+        "cypress": "^4.10.0",
         "eslint-config-airbnb": "^18.2.0",
         "eslint-plugin-react": "^7.20.0",
         "node-sass": "^4.14.1",
