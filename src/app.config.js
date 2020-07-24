@@ -3,17 +3,26 @@ import ENV from './environment';
 
 // general
 export const AppOptions = {
-	API_KEY: 'e53f909dc7af6030d4830fe76a876f32',
-	INTERVAL: {
-		WEATHER: 60000
-	}
+	CLIENT_NAME: 'eurowings-challenge',
+	CLIENT_ID: 'b6667866f8e791a'
 };
 
 // services
 export const AppServices = {
-	WEATHER: {
-		GET_WEATHER: {
-			URL: `${ENV().REST_API}/weather`
+	GALLERY: {
+		GET_GALLERY: {
+			URL: `${ENV().REST_API}/gallery/{section}/{sort}/{window}/{page}`
 		}
+	}
+};
+
+// headers for a request to backend
+export const RequestHeaders = {
+	get: {
+		authorization: `Client-ID ${AppOptions.CLIENT_ID}`
+	},
+	post: {
+		Accept: 'application/json',
+		'Content-Type': 'application/json'
 	}
 };

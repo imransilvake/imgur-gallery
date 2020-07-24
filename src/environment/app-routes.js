@@ -1,4 +1,4 @@
 const appRoutes = {
-	WEATHER: '/'
+	HOME: '/'
 };
 export default appRoutes;

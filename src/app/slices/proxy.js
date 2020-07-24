@@ -1,10 +1,16 @@
 // redux
 import { createSlice } from '@reduxjs/toolkit';
 
+// app
+import {
+	addMatrixParamsToUrl, addPathParams,
+	addPathValues, addQueryParamsToUrl, getHeaders
+} from '../utilities/core/proxy-options';
+
 // initial state
 export const initialState = {
 	loading: false,
-	data: [],
+	response: [],
 	errors: null
 };
 
@@ -18,12 +24,12 @@ const dataSlice = createSlice({
 		},
 		dataSuccess: (state, { payload }) => {
 			state.loading = false;
-			state.data = payload;
+			state.response = payload;
 			state.errors = null;
 		},
 		dataFailure: (state, { payload }) => {
 			state.loading = false;
-			state.data = [];
+			state.response = [];
 			state.errors = payload;
 		}
 	}
@@ -44,32 +50,47 @@ export default dataSlice.reducer;
  * @param payload
  * @returns {function(...[*]=)}
  */
-export function fetchApi(api, payload) {
+export const fetchApi = (api, payload) => {
 	return async (dispatch) => {
 		// dispatch: start fetch process
 		dispatch(dataLoading());
 
 		// query params
 		let url = api;
-		if (payload.queryParams) {
-			url = `${api}${payload.queryParams}`;
+		if (payload['queryParams']) {
+			url = `${addQueryParamsToUrl(api, payload['queryParams'])}`;
+		}
+
+		// path params
+		if (payload['pathParams']) {
+			url = `${addPathParams(url, payload['pathParams'])}`;
+		}
+
+		// path values
+		if (payload['pathValues']) {
+			url = `${addPathValues(url, payload['pathValues'])}`;
+		}
+
+		// matrix params
+		if (payload['matrixParams']) {
+			url = `${addMatrixParamsToUrl(url, payload['matrixParams'])}`;
 		}
 
 		// api call
 		try {
-			const response = await fetch(url);
+			const response = await fetch(url, getHeaders());
 			const res = await response.json();
 
 			// validate 200 status code
-			if (res['cod'] !== 200) {
+			if (res['status'] !== 200) {
 				throw res;
 			}
 
-			// dispatch: data
+			// dispatch: response
 			dispatch(dataSuccess(res));
 		} catch (error) {
 			// dispatch: error
 			dispatch(dataFailure(error));
 		}
 	};
-}
+};

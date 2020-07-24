@@ -9,9 +9,9 @@ import rootReducer from './app/slices';
 
 // app
 import './styles.scss';
-import './assets/i18n/i18n';
 import App from './app/App';
 
+// store
 const store = configureStore({
 	reducer: rootReducer
 });

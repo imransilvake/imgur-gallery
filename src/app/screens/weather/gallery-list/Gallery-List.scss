@@ -1,0 +1,101 @@
+@import './../../../../assets/scss/base';
+
+.ig-gallery-list {
+	.ig-content {
+		padding: 22px;
+		background: var(--c4);
+		border-radius: 10px;
+		margin: 30px 0 15px;
+
+		.ig-loader {
+			margin-top: 30px;
+			text-align: center;
+		}
+
+		.ig-items {
+			.ig-item {
+				align-items: stretch;
+				background-color: var(--c4);
+				border: 2px solid var(--c6);
+				color: var(--c2);
+				cursor: pointer;
+				display: flex;
+				position: relative;
+
+				img {
+					display: block;
+					margin: 0 auto;
+					max-height: 200px;
+					object-fit: cover;
+					width: 100%;
+				}
+
+				h4 {
+					background-color: var(--c5);
+					bottom: 0;
+					color: var(--c1);
+					font-size: fontSize(15px);
+					left: 0;
+					margin: 0;
+					opacity: .9;
+					padding: 5px;
+					position: absolute;
+					right: 0;
+					text-align: center;
+				}
+
+				&:hover {
+					img {
+						filter: brightness(110%);
+					}
+
+					h4 {
+						opacity: 1;
+					}
+				}
+			}
+		}
+
+		.ig-error {
+			background-color: var(--c1);
+			margin-bottom: 0;
+			padding: 15px;
+			word-break: break-word;
+
+			h3 {
+				color: var(--c8);
+				font-size: fontSize(20px);
+				margin: 0;
+			}
+
+			p {
+				color: var(--c8);
+				font-size: fontSize(15px);
+				margin: 5px 0 0;
+			}
+		}
+
+		.ig-load-more {
+			background-color: var(--c1);
+			margin-top: 22px;
+			padding: 15px 0;
+			text-align: center;
+			width: 100%;
+		}
+	}
+
+	.ig-page-top {
+		margin-bottom: 30px;
+		text-align: right;
+
+		button {
+			background-color: transparent;
+			border: none;
+			box-shadow: none;
+			color: var(--c7);
+			cursor: pointer;
+			font-size: fontSize(15px);
+			outline: 0;
+		}
+	}
+}

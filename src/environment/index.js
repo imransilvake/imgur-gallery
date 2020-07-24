@@ -6,7 +6,7 @@ import production from './production';
 /**
  * validate build environment
  */
-function ENV() {
+const ENV = () => {
 	switch (process.env.REACT_APP_ENV) {
 		case 'next':
 			return next;
@@ -15,5 +15,5 @@ function ENV() {
 		default:
 			return development;
 	}
-}
+};
 export default ENV;

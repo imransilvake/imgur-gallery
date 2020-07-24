@@ -6,13 +6,13 @@ import { Switch, Route } from 'react-router-dom';
 import ENV from '../environment/index';
 
 // lazy load components
-const Weather = React.lazy(() => import('./screens/weather/Weather'));
+const ImgurGallery = React.lazy(() => import('./screens/weather/Imgur-Gallery'));
 const Error404 = React.lazy(() => import('./screens/404/Error404'));
 
 const AppRouter = () => {
 	return (
 		<Switch>
-			<Route exact path={ENV().ROUTING.WEATHER} component={Weather} />
+			<Route exact path={ENV().ROUTING.HOME} component={ImgurGallery} />
 			<Route exact from="*" component={Error404} />
 		</Switch>
 	);
