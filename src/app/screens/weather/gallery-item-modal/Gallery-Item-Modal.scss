@@ -1,0 +1,36 @@
+.ig-gallery-modal {
+	.ig-content-wrapper {
+		position: relative;
+
+		img {
+			display: block;
+		}
+
+		.ig-content {
+			align-items: center;
+			background-color: var(--c2);
+			bottom: 0;
+			color: var(--c1);
+			left: 0;
+			position: sticky;
+			right: 0;
+			z-index: 1;
+
+			.ig-title {
+				padding: 10px 10px 5px;
+			}
+
+			.ig-info {
+				align-items: center;
+				display: flex;
+				justify-content: space-between;
+				padding: 10px;
+
+				h4, p {
+					margin: 0;
+					padding: 0;
+				}
+			}
+		}
+	}
+}

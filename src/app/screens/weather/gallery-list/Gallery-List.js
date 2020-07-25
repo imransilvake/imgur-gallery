@@ -16,6 +16,7 @@ import ScrollTop from '../../../../assets/svg/scroll-top.svg';
 import { AppServices } from '../../../../app.config';
 import scrollToTop from '../../../utilities/helpers/Helper';
 import { Container } from '@material-ui/core';
+import GalleryItemModal from '../gallery-item-modal/Gallery-Item-Modal';
 
 const GalleryList = () => {
 	// hooks
@@ -23,11 +24,10 @@ const GalleryList = () => {
 	const { response, loading, errors } = useSelector(proxySelector);
 	const { galleryParams } = useSelector(gallerySelector);
 	const pageBottomPrevY = useRef(0);
+	const [openModal, setOpenModal] = React.useState(false);
 
 	// fetch api data
 	useEffect(() => {
-		console.log('called');
-
 		// fetch api
 		dispatch(fetchApi(
 			AppServices.GALLERY.GET_GALLERY.URL, { ...galleryParams }
@@ -97,13 +97,19 @@ const GalleryList = () => {
 					{
 						response['data'].map((item, index) => (
 							item['cover'] && (
-								<div className="ig-item" key={`${item.id}-${index}`}>
-									{/* Image / Video */}
-									{ setImage(item) }
+								<button
+									type="button"
+									className="ig-item-button"
+									key={`${item.id}-${index}`}
+									onClick={() => setOpenModal(item)}>
+									<div className="ig-item">
+										{/* Image / Video */}
+										{ setImage(item) }
 
-									{/* Title */}
-									<h4>{item.title}</h4>
-								</div>
+										{/* Title */}
+										<h4>{item.title}</h4>
+									</div>
+								</button>
 							)
 						))
 					}
@@ -122,6 +128,9 @@ const GalleryList = () => {
 
 	return (
 		<Container maxWidth="md" className="ig-gallery-list">
+			{/* Gallery Item Modal */}
+			<GalleryItemModal openModal={openModal} setOpenModal={setOpenModal} />
+
 			{/* Content | Loading | Error */}
 			<div className="ig-content">
 				{/* Gallery */}

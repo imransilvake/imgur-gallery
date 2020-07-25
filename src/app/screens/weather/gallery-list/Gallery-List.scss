@@ -8,42 +8,52 @@
 		padding: 22px;
 
 		.ig-items {
-			.ig-item {
-				align-items: stretch;
-				background-color: var(--c4);
-				color: var(--c2);
-				cursor: pointer;
-				display: flex;
-				position: relative;
+			.ig-item-button {
+				background-color: transparent;
+				border: none;
+				box-shadow: none;
+				display: block;
+				margin: 0;
+				outline: none;
+				padding: 0;
 
-				img {
-					display: block;
-					margin: 0 auto;
-					object-fit: cover;
-					width: 100%;
-				}
-
-				h4 {
-					background-color: var(--c5);
-					bottom: 0;
+				.ig-item {
+					align-items: stretch;
+					background-color: var(--c4);
 					color: var(--c2);
-					font-size: fontSize(13px);
-					left: 0;
-					margin: 0;
-					opacity: .9;
-					padding: 5px;
-					position: absolute;
-					right: 0;
-					text-align: center;
-				}
+					cursor: pointer;
+					display: flex;
+					position: relative;
 
-				&:hover {
 					img {
-						filter: brightness(110%);
+						display: block;
+						margin: 0 auto;
+						object-fit: cover;
+						width: 100%;
 					}
 
 					h4 {
-						opacity: 1;
+						background-color: var(--c5);
+						bottom: 0;
+						color: var(--c2);
+						font-size: fontSize(13px);
+						left: 0;
+						margin: 0;
+						opacity: .9;
+						padding: 5px;
+						position: absolute;
+						right: 0;
+						text-align: center;
+					}
+
+					&:hover {
+						img {
+							filter: brightness(110%);
+						}
+
+						h4 {
+							opacity: 1;
+						}
 					}
 				}
 			}
