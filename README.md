@@ -1,5 +1,5 @@
 # Imgur Gallery
-An Imgur based app that allows one to browse the Imgur gallery using official Imgur API. It is built using React, Redux Toolkit, and Material-UI Framework.
+An Imgur based app that allows one to browse the Imgur gallery using their official [API](https://apidocs.imgur.com/?version=latest#eff60e84-5781-4c12-926a-208dc4c7cc94). It is built using React, Redux Toolkit, and Material-UI Framework.
 
 <p align="center">
 	<img src="preview.png" width="100%">
