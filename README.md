@@ -15,3 +15,16 @@ A simple web app that allows one to browse the Imgur gallery using [api.imgur](h
     - [X] Include or exclude viral images from the result set
     - [X] Filter based on a window and sort parameters
 - [ ] Unit test cases
+
+
+## Libraries and Frameworks
+
+#### External 
+- [X] [Create React App](https://github.com/facebook/create-react-app)
+- [X] [Redux Toolkut](https://redux-toolkit.js.org/)
+- [X] [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
+- [X] [Material-UI](https://material-ui.com/)
+
+
+## Information
+Check [React-Seed](https://github.com/imransilvake/React-Seed) to understand how to build and serve this project as well as how to use SCSS and JS linting.
