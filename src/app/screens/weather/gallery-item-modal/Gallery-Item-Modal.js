@@ -7,7 +7,7 @@ import Loader from '../../../../assets/svg/loader.svg';
 import Dialog from '@material-ui/core/Dialog';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-	faArrowDown, faArrowUp, faCalculator, faEye
+	faArrowDown, faArrowUp, faEye, faHeart
 } from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -61,7 +61,7 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 						{!!openModal['score'] && (
 							<Tooltip title="score">
 								<div className="ig-item">
-									<FontAwesomeIcon icon={faCalculator} />
+									<FontAwesomeIcon icon={faHeart} />
 									<p>{openModal['score']}</p>
 								</div>
 							</Tooltip>

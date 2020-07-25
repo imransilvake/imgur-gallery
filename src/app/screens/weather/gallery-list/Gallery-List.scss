@@ -18,11 +18,9 @@
 				padding: 0;
 
 				.ig-item {
-					align-items: stretch;
 					background-color: var(--c4);
 					color: var(--c2);
 					cursor: pointer;
-					display: flex;
 					position: relative;
 
 					img {
@@ -33,17 +31,19 @@
 					}
 
 					h4 {
-						background-color: var(--c5);
+						align-items: center;
+						background-color: var(--c1);
 						bottom: 0;
 						color: var(--c2);
 						font-size: fontSize(13px);
+						justify-content: center;
 						left: 0;
 						margin: 0;
 						opacity: .9;
-						padding: 5px;
+						padding: 10px 5px;
 						position: absolute;
 						right: 0;
-						text-align: center;
+						width: calc(100% - 10px);
 					}
 
 					&:hover {

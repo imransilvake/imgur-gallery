@@ -11,6 +11,7 @@ import {
 // initial state
 export const initialState = {
 	loading: false,
+	finished: false,
 	response: {},
 	errors: null
 };
@@ -26,6 +27,7 @@ const proxySlice = createSlice({
 		proxySuccess: (state, { payload }) => {
 			const oldState = original(state.response);
 			const newData = (oldState && oldState.data) ? [...oldState.data, ...payload.data] : payload.data;
+			state.finished = payload.data.length === 0;
 			state.loading = false;
 			state.response = { ...payload, data: newData };
 			state.errors = null;

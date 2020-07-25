@@ -100,7 +100,7 @@ const GalleryFilters = () => {
 							<MenuItem value="viral">Viral</MenuItem>
 							<MenuItem value="top">Top</MenuItem>
 							<MenuItem value="time">Time</MenuItem>
-							{state.section === 'user' && <MenuItem value="rising">Rising</MenuItem>}
+							<MenuItem value="rising" disabled={state.section !== 'user'}>Rising</MenuItem>
 						</Select>
 					</div>
 

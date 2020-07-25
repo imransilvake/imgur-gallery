@@ -26,7 +26,9 @@ import { Container } from '@material-ui/core';
 const GalleryList = () => {
 	// hooks
 	const dispatch = useDispatch();
-	const { response, loading, errors } = useSelector(proxySelector);
+	const {
+		loading, finished, response, errors
+	} = useSelector(proxySelector);
 	const { galleryParams } = useSelector(gallerySelector);
 	const [openModal, setOpenModal] = useState(false);
 	const observer = useRef();
@@ -52,14 +54,14 @@ const GalleryList = () => {
 
 		// observer
 		observer.current = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting) {
+			if (entries[0].isIntersecting && !finished) {
 				dispatch(galleryNextPage());
 			}
 		});
 
 		// observe node
 		if (node) observer.current.observe(node);
-	}, [dispatch, loading]);
+	}, [dispatch, loading, finished]);
 
 	/**
 	 * set and lazy-load item image
@@ -104,7 +106,7 @@ const GalleryList = () => {
 									{ setImage(item) }
 
 									{/* Title */}
-									{item.title && <h4>{item.title}</h4>}
+									{item.title && <h4 className="ig-ellipses">{item.title}</h4>}
 								</div>
 							</button>
 						))
