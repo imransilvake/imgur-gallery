@@ -6,7 +6,7 @@ A simple web app that allows one to browse the Imgur gallery using [api.imgur](h
 </p>
 
 
-## Gallery API
+## API: [official](https://apidocs.imgur.com/?version=latest#eff60e84-5781-4c12-926a-208dc4c7cc94)
 ```
 https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showViral={{showViral}}&album_previews={{albumPreviews}}
 ```
@@ -37,8 +37,8 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
 
 ## Content
 - [X] Show gallery images in a grid of thumbnails and lazy load them
-- [X] Show image description in the thumbnail, top or bottom
-- [X] On clicking an image in the gallery, show its details: big image, title, description, up-votes, down-votes, and score 
+- [X] Show image description in the thumbnail in bottom position
+- [X] On clicking an image in the gallery, show its details: big image, title, description, up-votes, down-votes, and score
 - [X] Filters:
     - [X] Filter the images based on: hot, top, user
     - [X] Include or exclude viral images from the result set
