@@ -21,7 +21,7 @@ A simple web app that allows one to browse the Imgur gallery using [api.imgur](h
 
 #### External 
 - [X] [Create React App](https://github.com/facebook/create-react-app)
-- [X] [Redux Toolkut](https://redux-toolkit.js.org/)
+- [X] [Redux Toolkit](https://redux-toolkit.js.org/)
 - [X] [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [X] [Material-UI](https://material-ui.com/)
 
