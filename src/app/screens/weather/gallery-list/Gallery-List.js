@@ -20,8 +20,8 @@ import Loader from '../../../../assets/images/loader.gif';
 import ScrollTop from '../../../../assets/svg/scroll-top.svg';
 import { AppServices } from '../../../../app.config';
 import scrollToTop from '../../../utilities/helpers/Helper';
-import { Container } from '@material-ui/core';
 import GalleryItemModal from '../gallery-item-modal/Gallery-Item-Modal';
+import { Container } from '@material-ui/core';
 
 const GalleryList = () => {
 	// hooks
@@ -81,15 +81,6 @@ const GalleryList = () => {
 				src={payload.src}
 				width={payload.width} />
 		);
-	};
-
-	/**
-	 * set video
-	 * @param item
-	 */
-	const setVideo = (item) => {
-		console.log(item);
-		// return item;
 	};
 
 	/**
