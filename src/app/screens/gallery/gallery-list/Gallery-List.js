@@ -124,7 +124,7 @@ const GalleryList = () => {
 				{ displayGallery() }
 
 				{/* Loader */}
-				{loading && (
+				{!finished && (
 					<div className="ig-load-more">
 						<img src={Loader} alt="load more" />
 					</div>
