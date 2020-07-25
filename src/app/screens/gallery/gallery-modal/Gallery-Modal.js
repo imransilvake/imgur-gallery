@@ -2,16 +2,17 @@
 import React from 'react';
 
 // app
-import './Gallery-Item-Modal.scss';
+import './Gallery-Modal.scss';
 import Loader from '../../../../assets/svg/loader.svg';
 import Dialog from '@material-ui/core/Dialog';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faArrowDown, faArrowUp, faEye, faHeart
-} from '@fortawesome/free-solid-svg-icons';
 import Tooltip from '@material-ui/core/Tooltip';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown';
+import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
-const GalleryItemModal = ({ openModal, setOpenModal }) => {
+const GalleryModal = ({ openModal, setOpenModal }) => {
 	// src name
 	const name = !openModal['cover'] ? openModal['id'] : openModal['cover'];
 
@@ -42,6 +43,8 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 						{!!openModal.description && (
 							<div>{openModal.description}</div>
 						)}
+
+						{/* Up-votes */}
 						{!!openModal['ups'] && (
 							<Tooltip title="up-votes">
 								<div className="ig-item">
@@ -50,6 +53,8 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 								</div>
 							</Tooltip>
 						)}
+
+						{/* Down-votes */}
 						{!!openModal['downs'] && (
 							<Tooltip title="down-votes">
 								<div className="ig-item">
@@ -58,6 +63,8 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 								</div>
 							</Tooltip>
 						)}
+
+						{/* Score */}
 						{!!openModal['score'] && (
 							<Tooltip title="score">
 								<div className="ig-item">
@@ -66,6 +73,8 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 								</div>
 							</Tooltip>
 						)}
+
+						{/* Views */}
 						{!!openModal['views'] && (
 							<Tooltip title="views">
 								<div className="ig-item">
@@ -80,4 +89,4 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 		</Dialog>
 	);
 };
-export default GalleryItemModal;
+export default GalleryModal;
