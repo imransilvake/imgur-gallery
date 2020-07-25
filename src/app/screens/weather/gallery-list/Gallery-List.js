@@ -1,5 +1,7 @@
 // react
-import React, { useEffect, useRef } from 'react';
+import React, {
+	useCallback, useEffect, useRef, useState
+} from 'react';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +10,9 @@ import { gallerySelector, galleryNextPage } from '../../../slices/gallery';
 
 // lazy-load image
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+
+// uuid
+import { v4 as uuid4 } from 'uuid';
 
 // app
 import './Gallery-List.scss';
@@ -23,8 +28,8 @@ const GalleryList = () => {
 	const dispatch = useDispatch();
 	const { response, loading, errors } = useSelector(proxySelector);
 	const { galleryParams } = useSelector(gallerySelector);
-	const pageBottomPrevY = useRef(0);
-	const [openModal, setOpenModal] = React.useState(false);
+	const [openModal, setOpenModal] = useState(false);
+	const observer = useRef();
 
 	// fetch api data
 	useEffect(() => {
@@ -34,46 +39,38 @@ const GalleryList = () => {
 		));
 	}, [dispatch, galleryParams]);
 
-	// detect end of page and call next page
-	useEffect(() => {
-		// OI Options
-		const options = {
-			root: null,
-			rootMargin: '0px 0px 400px 0px',
-			threshold: [0.98, 0.99, 1]
-		};
+	/**
+	 * implement infinite scrolling
+	 * @type {*}
+	 */
+	const lastItemFromGalleryRef = useCallback((node) => {
+		// skip if loading
+		if (loading) return;
 
-		// validate intersection observer
-		if (window.IntersectionObserver) {
-			// observer
-			const observer = new IntersectionObserver((entries) => {
-				const firstEntry = entries[0];
-				const { y } = firstEntry.boundingClientRect;
+		// disconnect observer
+		if (observer.current) observer.current.disconnect();
 
-				// we don't want to load more images when we scroll up and then down again.
-				// skip calling on top of page
-				if (pageBottomPrevY.current > y && document.documentElement.scrollTop > 200) {
-					dispatch(galleryNextPage());
-				}
+		// observer
+		observer.current = new IntersectionObserver((entries) => {
+			if (entries[0].isIntersecting) {
+				dispatch(galleryNextPage());
+			}
+		});
 
-				// update value
-				pageBottomPrevY.current = y - 50;
-			}, options);
-
-			// observe element
-			const target = document.querySelector('#page-bottom');
-			observer.observe(target);
-		}
-	}, [dispatch]);
+		// observe node
+		if (node) observer.current.observe(node);
+	}, [dispatch, loading]);
 
 	/**
 	 * set and lazy-load item image
 	 * @param item
 	 */
 	const setImage = (item) => {
+		const name = !item['cover'] ? item['id'] : item['cover'];
+		const thumbnail = `//i.imgur.com/${name}_d.jpg?maxwidth=300&shape=thumb`;
 		const payload = {
-			src: `//i.imgur.com/${item['cover']}_d.jpg?maxwidth=300&shape=thumb`,
-			alt: item['cover'],
+			src: thumbnail,
+			alt: name,
 			width: 200,
 			height: 200
 		};
@@ -87,6 +84,15 @@ const GalleryList = () => {
 	};
 
 	/**
+	 * set video
+	 * @param item
+	 */
+	const setVideo = (item) => {
+		console.log(item);
+		// return item;
+	};
+
+	/**
 	 * display gallery images
 	 */
 	const displayGallery = () => {
@@ -96,21 +102,20 @@ const GalleryList = () => {
 				<div className="ig-grid ig-items">
 					{
 						response['data'].map((item, index) => (
-							item['cover'] && (
-								<button
-									type="button"
-									className="ig-item-button"
-									key={`${item.id}-${index}`}
-									onClick={() => setOpenModal(item)}>
-									<div className="ig-item">
-										{/* Image / Video */}
-										{ setImage(item) }
+							<button
+								ref={(response['data'].length - 15) === index ? lastItemFromGalleryRef : null}
+								type="button"
+								className="ig-item-button"
+								key={uuid4()}
+								onClick={() => setOpenModal(item)}>
+								<div className="ig-item">
+									{/* Image */}
+									{ setImage(item) }
 
-										{/* Title */}
-										<h4>{item.title}</h4>
-									</div>
-								</button>
-							)
+									{/* Title */}
+									{item.title && <h4>{item.title}</h4>}
+								</div>
+							</button>
 						))
 					}
 				</div>
@@ -152,9 +157,6 @@ const GalleryList = () => {
 					<img src={ScrollTop} alt="load more" />
 				</button>
 			</div>
-
-			{/* Page End */}
-			<div id="page-bottom" />
 		</Container>
 	);
 };

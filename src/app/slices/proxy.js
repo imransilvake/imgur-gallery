@@ -45,7 +45,7 @@ export const {
 } = proxySlice.actions;
 
 // selector
-export const proxySelector = (state) => state.proxy;
+export const proxySelector = (state) => state['proxy'];
 
 // reducer
 export default proxySlice.reducer;

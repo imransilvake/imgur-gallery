@@ -24,6 +24,7 @@ A simple web app that allows one to browse the Imgur gallery using [api.imgur](h
 - [X] [Redux Toolkit](https://redux-toolkit.js.org/)
 - [X] [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [X] [Material-UI](https://material-ui.com/)
+- [X] [uuid](https://github.com/uuidjs/uuid/)
 
 
 ## Information
