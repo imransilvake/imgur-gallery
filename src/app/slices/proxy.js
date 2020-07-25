@@ -1,5 +1,6 @@
 // redux
 import { createSlice } from '@reduxjs/toolkit';
+import { original } from 'immer';
 
 // app
 import {
@@ -10,39 +11,44 @@ import {
 // initial state
 export const initialState = {
 	loading: false,
-	response: [],
+	response: {},
 	errors: null
 };
 
 // slice for data with reducers
-const dataSlice = createSlice({
+const proxySlice = createSlice({
 	name: 'proxy',
 	initialState,
 	reducers: {
-		dataLoading: (state) => {
+		proxyLoading: (state) => {
 			state.loading = true;
 		},
-		dataSuccess: (state, { payload }) => {
+		proxySuccess: (state, { payload }) => {
+			const oldState = original(state.response);
+			const newData = (oldState && oldState.data) ? [...oldState.data, ...payload.data] : payload.data;
 			state.loading = false;
-			state.response = payload;
+			state.response = { ...payload, data: newData };
 			state.errors = null;
 		},
-		dataFailure: (state, { payload }) => {
+		proxyFailure: (state, { error }) => {
 			state.loading = false;
-			state.response = [];
-			state.errors = payload;
-		}
+			state.response = {};
+			state.errors = error;
+		},
+		proxyReset: () => initialState
 	}
 });
 
 // actions generated from the slice
-export const { dataLoading, dataSuccess, dataFailure } = dataSlice.actions;
+export const {
+	proxyLoading, proxySuccess, proxyFailure, proxyReset
+} = proxySlice.actions;
 
 // selector
-export const dataSelector = (state) => state.proxy;
+export const proxySelector = (state) => state.proxy;
 
 // reducer
-export default dataSlice.reducer;
+export default proxySlice.reducer;
 
 /**
  * asynchronous fetch api
@@ -53,7 +59,7 @@ export default dataSlice.reducer;
 export const fetchApi = (api, payload) => {
 	return async (dispatch) => {
 		// dispatch: start fetch process
-		dispatch(dataLoading());
+		dispatch(proxyLoading());
 
 		// query params
 		let url = api;
@@ -87,10 +93,10 @@ export const fetchApi = (api, payload) => {
 			}
 
 			// dispatch: response
-			dispatch(dataSuccess(res));
+			dispatch(proxySuccess(res));
 		} catch (error) {
 			// dispatch: error
-			dispatch(dataFailure(error));
+			dispatch(proxyFailure(error));
 		}
 	};
 };

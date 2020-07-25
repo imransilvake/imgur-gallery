@@ -14,16 +14,12 @@ const scrollToTop = () => {
 	}, 15);
 };
 
-/**
- * detect page end
- */
-const detectPageEnd = () => {
-	window.onscroll = () => {
-		return (window.innerHeight + window.pageYOffset) >= document.body.offsetHeight;
-	};
+const uniqueListofObjects = (prevData, newData) => {
+	console.log(prevData, newData);
+	return [...prevData, ...newData];
 };
 
 export {
 	scrollToTop,
-	detectPageEnd
+	uniqueListofObjects
 };

@@ -4,6 +4,7 @@ import React from 'react';
 // app
 import './Imgur-Gallery.scss';
 import Logo from '../../../assets/svg/logo.svg';
+import GalleryFilters from './gallery-filters/Gallery-Filters';
 import GalleryList from './gallery-list/Gallery-List';
 
 const ImgurGallery = () => {
@@ -14,7 +15,10 @@ const ImgurGallery = () => {
 				<img src={Logo} alt="app-logo" />
 			</header>
 
-			{/* Gallery */}
+			{/* Gallery Filters */}
+			<GalleryFilters />
+
+			{/* Gallery List */}
 			<GalleryList />
 		</section>
 	);

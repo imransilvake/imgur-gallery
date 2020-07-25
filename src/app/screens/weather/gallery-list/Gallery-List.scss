@@ -2,10 +2,10 @@
 
 .ig-gallery-list {
 	.ig-content {
-		padding: 22px;
-		background: var(--c4);
+		background-color: var(--c4);
 		border-radius: 10px;
 		margin: 30px 0 15px;
+		padding: 22px;
 
 		.ig-loader {
 			margin-top: 30px;
@@ -25,7 +25,6 @@
 				img {
 					display: block;
 					margin: 0 auto;
-					max-height: 200px;
 					object-fit: cover;
 					width: 100%;
 				}
@@ -85,17 +84,24 @@
 	}
 
 	.ig-page-top {
-		margin-bottom: 30px;
-		text-align: right;
+		bottom: 15px;
+		position: fixed;
+		right: 20px;
 
 		button {
-			background-color: transparent;
+			background-color: var(--c4);
+			border-radius: 4px;
 			border: none;
 			box-shadow: none;
-			color: var(--c7);
 			cursor: pointer;
 			font-size: fontSize(15px);
+			height: 40px;
 			outline: 0;
+			width: 40px;
+
+			img {
+				display: block;
+			}
 		}
 	}
 }
