@@ -6,6 +6,35 @@ A simple web app that allows one to browse the Imgur gallery using [api.imgur](h
 </p>
 
 
+## Gallery API
+```
+https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showViral={{showViral}}&album_previews={{albumPreviews}}
+```
+
+#### key / value
+- section (optional): Defaults to hot
+    - hot
+    - top
+    - user
+- sort (optional): Defaults to viral
+    - viral
+    - top
+    - time
+    - rising (only available with user section) 
+- page (optional)
+    - integer (the data paging number)
+- window (optional): Defaults to day
+    - day
+    - week
+    - month
+    - year
+    - all
+    
+#### Params (optional)
+- showViral: Show or hide viral images from the user section. Defaults to true
+- album_previews: Include image metadata for gallery posts which are albums
+
+
 ## Content
 - [X] Show gallery images in a grid of thumbnails and lazy load them
 - [X] Show image description in the thumbnail, top or bottom
