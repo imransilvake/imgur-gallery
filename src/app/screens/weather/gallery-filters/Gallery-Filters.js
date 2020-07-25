@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 
 // redux
 import { useDispatch } from 'react-redux';
-import { galleryFilters, galleryReset } from '../../../slices/gallery';
+import { galleryFilters, galleryReset, initialState } from '../../../slices/gallery';
 import { proxyReset } from '../../../slices/proxy';
 
 // app
@@ -16,10 +16,10 @@ const GalleryFilters = () => {
 	const dispatch = useDispatch();
 	const isFirstRun = useRef(true);
 	const [state, setState] = React.useState({
-		viral: true,
-		section: 'hot',
-		sort: 'viral',
-		window: 'day'
+		viral: initialState.galleryParams.queryParams.showViral,
+		section: initialState.galleryParams.pathValues.section,
+		sort: initialState.galleryParams.pathValues.sort,
+		window: initialState.galleryParams.pathValues.window
 	});
 
 	useEffect(() => {

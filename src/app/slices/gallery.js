@@ -9,9 +9,9 @@ export const initialState = {
 			album_previews: true
 		},
 		pathValues: {
-			section: 'hot',
+			section: 'user',
 			sort: 'viral',
-			window: 'day',
+			window: 'all',
 			page: 0
 		}
 	}

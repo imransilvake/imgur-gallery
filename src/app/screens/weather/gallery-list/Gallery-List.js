@@ -39,7 +39,7 @@ const GalleryList = () => {
 		// OI Options
 		const options = {
 			root: null,
-			rootMargin: '0px 0px 200px 0px',
+			rootMargin: '0px 0px 400px 0px',
 			threshold: [0.98, 0.99, 1]
 		};
 
@@ -57,8 +57,7 @@ const GalleryList = () => {
 				}
 
 				// update value
-				// note: 500 helps prevent additional nextPage() calls
-				pageBottomPrevY.current = y - 500;
+				pageBottomPrevY.current = y;
 			}, options);
 
 			// observe element
