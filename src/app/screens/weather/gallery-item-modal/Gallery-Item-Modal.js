@@ -5,6 +5,11 @@ import React from 'react';
 import './Gallery-Item-Modal.scss';
 import Loader from '../../../../assets/svg/loader.svg';
 import Dialog from '@material-ui/core/Dialog';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faArrowDown, faArrowUp, faCalculator, faEye
+} from '@fortawesome/free-solid-svg-icons';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const GalleryItemModal = ({ openModal, setOpenModal }) => {
 	// src name
@@ -29,7 +34,7 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 					<div className="ig-title">
 						{/* Title */}
 						{!!openModal.title && (
-							<div>{openModal.title}</div>
+							<h3>{openModal.title}</h3>
 						)}
 					</div>
 					<div className="ig-info">
@@ -38,22 +43,36 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 							<div>{openModal.description}</div>
 						)}
 						{!!openModal['ups'] && (
-							<div>
-								<h4>Up Votes:</h4>
-								<p>{openModal['ups']}</p>
-							</div>
+							<Tooltip title="up-votes">
+								<div className="ig-item">
+									<FontAwesomeIcon icon={faArrowUp} />
+									<p>{openModal['ups']}</p>
+								</div>
+							</Tooltip>
 						)}
 						{!!openModal['downs'] && (
-							<div>
-								<h4>Down Votes:</h4>
-								<p>{openModal['downs']}</p>
-							</div>
+							<Tooltip title="down-votes">
+								<div className="ig-item">
+									<FontAwesomeIcon icon={faArrowDown} />
+									<p>{openModal['downs']}</p>
+								</div>
+							</Tooltip>
 						)}
 						{!!openModal['score'] && (
-							<div>
-								<h4>Score:</h4>
-								<p>{openModal['score']}</p>
-							</div>
+							<Tooltip title="score">
+								<div className="ig-item">
+									<FontAwesomeIcon icon={faCalculator} />
+									<p>{openModal['score']}</p>
+								</div>
+							</Tooltip>
+						)}
+						{!!openModal['views'] && (
+							<Tooltip title="views">
+								<div className="ig-item">
+									<FontAwesomeIcon icon={faEye} />
+									<p>{openModal['views']}</p>
+								</div>
+							</Tooltip>
 						)}
 					</div>
 				</div>
