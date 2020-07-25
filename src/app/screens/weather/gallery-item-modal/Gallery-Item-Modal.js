@@ -5,15 +5,6 @@ import React from 'react';
 import './Gallery-Item-Modal.scss';
 import Loader from '../../../../assets/svg/loader.svg';
 import Dialog from '@material-ui/core/Dialog';
-import Slide from '@material-ui/core/Slide';
-
-/**
- * transition
- * @type {React.ForwardRefExoticComponent<React.PropsWithoutRef<{}> & React.RefAttributes<unknown>>}
- */
-const Transition = React.forwardRef((props, ref) => {
-	return <Slide direction="up" ref={ref} {...props} />;
-});
 
 const GalleryItemModal = ({ openModal, setOpenModal }) => {
 	// src name
@@ -23,7 +14,6 @@ const GalleryItemModal = ({ openModal, setOpenModal }) => {
 		<Dialog
 			className="ig-gallery-modal"
 			open={!!openModal}
-			TransitionComponent={Transition}
 			onClose={() => setOpenModal(false)}
 			keepMounted>
 			<div className="ig-content-wrapper">

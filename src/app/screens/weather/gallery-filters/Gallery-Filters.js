@@ -48,11 +48,8 @@ const GalleryFilters = () => {
 	 */
 	const handleChange = (event) => {
 		const { name, value, checked } = event.target;
-		if (checked !== undefined) {
-			setState({ ...state, [name]: checked });
-		} else {
-			setState({ ...state, [name]: value });
-		}
+		const result = (checked !== undefined) ? checked : value;
+		setState({ ...state, [name]: result });
 	};
 
 	return (
@@ -103,9 +100,7 @@ const GalleryFilters = () => {
 							<MenuItem value="viral">Viral</MenuItem>
 							<MenuItem value="top">Top</MenuItem>
 							<MenuItem value="time">Time</MenuItem>
-							{
-								state.section === 'user' && <MenuItem value="rising">Rising</MenuItem>
-							}
+							{state.section === 'user' && <MenuItem value="rising">Rising</MenuItem>}
 						</Select>
 					</div>
 
