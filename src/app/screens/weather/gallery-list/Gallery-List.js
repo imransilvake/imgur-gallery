@@ -57,7 +57,7 @@ const GalleryList = () => {
 				}
 
 				// update value
-				pageBottomPrevY.current = y;
+				pageBottomPrevY.current = y - 50;
 			}, options);
 
 			// observe element

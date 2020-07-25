@@ -8,9 +8,12 @@ import { proxyReset } from '../../../slices/proxy';
 
 // app
 import './Gallery-Filters.scss';
-import {
-	Container, Switch, MenuItem, Select
-} from '@material-ui/core';
+import Container from '@material-ui/core/Container';
+import MenuItem from '@material-ui/core/MenuItem';
+import Switch from '@material-ui/core/Switch';
+import Select from '@material-ui/core/Select';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
 
 const GalleryFilters = () => {
 	const dispatch = useDispatch();
@@ -55,30 +58,74 @@ const GalleryFilters = () => {
 	return (
 		<Container maxWidth="md" className="ig-gallery-filters">
 			<div className="ig-content">
-				<Switch name="viral" checked={state.viral} onChange={handleChange} />
+				{/* Left */}
+				<div className="ig-left">
+					<FormControlLabel
+						className="ig-switch"
+						classes={{ label: 'ig-label' }}
+						control={(
+							<Switch
+								name="viral"
+								color="primary"
+								onChange={handleChange}
+								checked={state.viral} />
+						)}
+						label="Show Viral" />
+				</div>
 
-				<Select name="section" value={state.section} onChange={handleChange}>
-					<MenuItem value="hot">Hot</MenuItem>
-					<MenuItem value="top">Top</MenuItem>
-					<MenuItem value="user">User</MenuItem>
-				</Select>
+				{/* Right */}
+				<div className="ig-right">
+					<div className="ig-item">
+						<FormHelperText className="ig-helper">Section</FormHelperText>
+						<Select
+							label="hello"
+							variant="filled"
+							name="section"
+							value={state.section}
+							onChange={handleChange}
+							className="ig-select-wrapper"
+							classes={{ select: 'ig-select' }}>
+							<MenuItem value="hot">Hot</MenuItem>
+							<MenuItem value="top">Top</MenuItem>
+							<MenuItem value="user">User</MenuItem>
+						</Select>
+					</div>
 
-				<Select name="sort" value={state.sort} onChange={handleChange}>
-					<MenuItem value="viral">Viral</MenuItem>
-					<MenuItem value="top">Top</MenuItem>
-					<MenuItem value="time">Time</MenuItem>
-					{
-						state.section === 'user' && <MenuItem value="rising">Rising</MenuItem>
-					}
-				</Select>
+					<div className="ig-item">
+						<FormHelperText className="ig-helper">Sort</FormHelperText>
+						<Select
+							variant="filled"
+							name="sort"
+							value={state.sort}
+							onChange={handleChange}
+							className="ig-select-wrapper"
+							classes={{ select: 'ig-select' }}>
+							<MenuItem value="viral">Viral</MenuItem>
+							<MenuItem value="top">Top</MenuItem>
+							<MenuItem value="time">Time</MenuItem>
+							{
+								state.section === 'user' && <MenuItem value="rising">Rising</MenuItem>
+							}
+						</Select>
+					</div>
 
-				<Select name="window" value={state.window} onChange={handleChange}>
-					<MenuItem value="day">Day</MenuItem>
-					<MenuItem value="week">Week</MenuItem>
-					<MenuItem value="month">Month</MenuItem>
-					<MenuItem value="year">Year</MenuItem>
-					<MenuItem value="all">All</MenuItem>
-				</Select>
+					<div className="ig-item">
+						<FormHelperText className="ig-helper">Window</FormHelperText>
+						<Select
+							variant="filled"
+							name="window"
+							value={state.window}
+							onChange={handleChange}
+							className="ig-select-wrapper"
+							classes={{ select: 'ig-select' }}>
+							<MenuItem value="day">Day</MenuItem>
+							<MenuItem value="week">Week</MenuItem>
+							<MenuItem value="month">Month</MenuItem>
+							<MenuItem value="year">Year</MenuItem>
+							<MenuItem value="all">All</MenuItem>
+						</Select>
+					</div>
+				</div>
 			</div>
 		</Container>
 	);
