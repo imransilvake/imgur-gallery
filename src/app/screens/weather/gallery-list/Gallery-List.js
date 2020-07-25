@@ -14,7 +14,7 @@ import './Gallery-List.scss';
 import Loader from '../../../../assets/images/loader.gif';
 import ScrollTop from '../../../../assets/svg/scroll-top.svg';
 import { AppServices } from '../../../../app.config';
-import { scrollToTop } from '../../../utilities/helpers/Helper';
+import scrollToTop from '../../../utilities/helpers/Helper';
 import { Container } from '@material-ui/core';
 
 const GalleryList = () => {
@@ -53,7 +53,6 @@ const GalleryList = () => {
 				// we don't want to load more images when we scroll up and then down again.
 				// skip calling on top of page
 				if (pageBottomPrevY.current > y && document.documentElement.scrollTop > 200) {
-					console.log('sss', pageBottomPrevY);
 					dispatch(galleryNextPage());
 				}
 

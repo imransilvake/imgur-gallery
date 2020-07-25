@@ -13,13 +13,4 @@ const scrollToTop = () => {
 		}
 	}, 15);
 };
-
-const uniqueListofObjects = (prevData, newData) => {
-	console.log(prevData, newData);
-	return [...prevData, ...newData];
-};
-
-export {
-	scrollToTop,
-	uniqueListofObjects
-};
+export default scrollToTop;
