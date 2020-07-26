@@ -1,5 +1,5 @@
 # Imgur Gallery
-An Imgur based app that allows one to browse the Imgur gallery. The gallery images lazy loading and infinite scrolling is implemented using Intersection Observer API. According to the MDN docs, “the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document’s viewport”.
+An Imgur based app that allows one to browse the Imgur gallery. The lazy-loading of images and infinite scrolling is implemented using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
 
 <p align="center">
 	<img src="preview.png" width="100%">
