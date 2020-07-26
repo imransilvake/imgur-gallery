@@ -38,7 +38,9 @@ const GalleryList = () => {
 	useEffect(() => {
 		// fetch api
 		dispatch(fetchApi(
-			AppServices.GALLERY.GET_GALLERY.URL, { ...galleryParams }
+			AppServices.GALLERY.GET_GALLERY.URL, {
+				...galleryParams
+			}
 		));
 	}, [dispatch, galleryParams]);
 
@@ -71,7 +73,10 @@ const GalleryList = () => {
 	const setImage = (item) => {
 		const name = !item['cover'] ? item['id'] : item['cover'];
 		const thumbnail = `//i.imgur.com/${name}_d.jpg?maxwidth=300&shape=thumb`;
-		const payload = { src: thumbnail, alt: name };
+		const payload = {
+			src: thumbnail,
+			alt: name
+		};
 		return (
 			<LazyLoadImage
 				alt={payload.alt}

@@ -10,7 +10,7 @@ export const AppOptions = {
 // services
 export const AppServices = {
 	GALLERY: {
-		GET_GALLERY: {
+		FETCH: {
 			URL: `${ENV().REST_API}/gallery/{section}/{sort}/{window}/{page}`
 		}
 	}

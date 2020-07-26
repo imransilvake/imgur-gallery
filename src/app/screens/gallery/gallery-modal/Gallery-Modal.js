@@ -33,7 +33,9 @@ const GalleryModal = ({ openModal, setOpenModal }) => {
 				{/* Image */}
 				{!!name && (
 					<img
-						style={{ backgroundImage: `url(${Loader})` }}
+						style={{
+							backgroundImage: `url(${Loader})`
+						}}
 						src={`//i.imgur.com/${name}.jpg`}
 						alt={openModal['cover']} />
 				)}

@@ -60,7 +60,10 @@ const GalleryFilters = () => {
 		const result = (checked !== undefined) ? checked : value;
 
 		// set hook: setState
-		setState({ ...state, [name]: result });
+		setState({
+			...state,
+			[name]: result
+		});
 	};
 
 	return (
@@ -70,7 +73,9 @@ const GalleryFilters = () => {
 				<div className="ig-left">
 					<FormControlLabel
 						className="ig-switch"
-						classes={{ label: 'ig-label' }}
+						classes={{
+							label: 'ig-label'
+						}}
 						control={(
 							<Switch
 								name="viral"
@@ -92,7 +97,9 @@ const GalleryFilters = () => {
 							value={state.section}
 							onChange={handleChange}
 							className="ig-select-wrapper"
-							classes={{ select: 'ig-select' }}>
+							classes={{
+								select: 'ig-select'
+							}}>
 							<MenuItem value="hot">Hot</MenuItem>
 							<MenuItem value="top">Top</MenuItem>
 							<MenuItem value="user">User</MenuItem>
@@ -107,7 +114,9 @@ const GalleryFilters = () => {
 							value={state.sort}
 							onChange={handleChange}
 							className="ig-select-wrapper"
-							classes={{ select: 'ig-select' }}>
+							classes={{
+								select: 'ig-select'
+							}}>
 							<MenuItem value="viral">Viral</MenuItem>
 							<MenuItem value="top">Top</MenuItem>
 							<MenuItem value="time">Time</MenuItem>
@@ -123,7 +132,9 @@ const GalleryFilters = () => {
 							value={state.window}
 							onChange={handleChange}
 							className="ig-select-wrapper"
-							classes={{ select: 'ig-select' }}>
+							classes={{
+								select: 'ig-select'
+							}}>
 							<MenuItem value="day">Day</MenuItem>
 							<MenuItem value="week">Week</MenuItem>
 							<MenuItem value="month">Month</MenuItem>

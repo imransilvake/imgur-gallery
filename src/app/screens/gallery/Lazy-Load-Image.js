@@ -37,7 +37,12 @@ const LazyLoadImage = ({ src, alt }) => {
 	return (showImage) ? (
 		<img src={src} alt={alt} />
 	) : (
-		<div style={{ display: 'block', height: '200px' }} ref={placeHolderRef} />
+		<div
+			ref={placeHolderRef}
+			style={{
+				display: 'block',
+				height: '200px'
+			}} />
 	);
 };
 export default LazyLoadImage;

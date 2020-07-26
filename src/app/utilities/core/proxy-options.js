@@ -1,3 +1,4 @@
+// app
 import { RequestHeaders } from '../../../app.config';
 
 /**
@@ -10,13 +11,17 @@ const addHeaders = (postApi) => {
 	const headerValues = (postApi) ? RequestHeaders.post : RequestHeaders.get;
 
 	// set headers
-	const headers = { headers: {} };
+	const headers = {};
 	if (Object.keys(headerValues).length !== 0) {
 		Object.keys(headerValues).forEach((key) => {
-			headers['headers'][key] = headerValues[key];
+			headers[key] = headerValues[key];
 		});
 	}
-	return headers;
+
+	// return
+	return {
+		headers
+	};
 };
 
 /**
@@ -52,11 +57,13 @@ const addQueryParamsToUrl = (url, queryParams) => {
 							params += '&';
 						}
 
+						// concatenate
 						params = params.concat(key)
 							.concat('=')
 							.concat(value);
 					});
 				} else {
+					// concatenate
 					params = params.concat(key)
 						.concat('=')
 						.concat(queryParams[key]);
@@ -76,13 +83,10 @@ const addQueryParamsToUrl = (url, queryParams) => {
  */
 const addMatrixParamsToUrl = (url, matrixParams) => {
 	let newUrl = url;
-	if (Object.keys(matrixParams).length !== 0) {
-		let params = '';
-		// set matrix params to url
+	if (matrixParams) {
 		Object.keys(matrixParams).forEach((key) => {
-			params = params.concat(';').concat(key).concat('=').concat(matrixParams[key]);
+			newUrl = newUrl.concat(';').concat(key).concat('=').concat(matrixParams[key]);
 		});
-		newUrl += params;
 	}
 	return newUrl;
 };

@@ -3,10 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { original } from 'immer';
 
 // app
-import {
-	addMatrixParamsToUrl, addPathParams,
-	addKeyValues, addQueryParamsToUrl, addHeaders
-} from '../utilities/core/proxy-options';
+import { addMatrixParamsToUrl, addPathParams, addKeyValues, addQueryParamsToUrl, addHeaders } from '../utilities/core/proxy-options';
 
 // initial state
 export const initialState = {
@@ -30,7 +27,9 @@ const proxySlice = createSlice({
 
 			state.finished = payload.data.length === 0;
 			state.loading = false;
-			state.response = { ...payload, data: newData };
+			state.response = {
+				...payload, data: newData
+			};
 			state.errors = null;
 		},
 		proxyFailure: (state, { error }) => {
