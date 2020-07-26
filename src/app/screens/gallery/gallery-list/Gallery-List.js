@@ -78,8 +78,8 @@ const GalleryList = () => {
 		};
 		return (
 			<LazyLoadImage
-				alt={payload.alt}
-				src={payload.src} />
+				src={payload.src}
+				alt={payload.alt} />
 		);
 	};
 

@@ -30,14 +30,15 @@ const LazyLoadImage = ({ src, alt }) => {
 		io.observe(placeHolderRef.current);
 
 		// cleanup
-		return () => io.disconnect();
-	}, []);
+		return () => io && io.root !== undefined && io.disconnect();
+	}, [setShowImage]);
 
 	// return
 	return (showImage) ? (
 		<img src={src} alt={alt} />
 	) : (
 		<div
+			data-testid="ig-placeholder"
 			ref={placeHolderRef}
 			style={{
 				display: 'block',

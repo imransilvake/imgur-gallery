@@ -6,7 +6,7 @@ import { fetchApi, proxyReset } from '../../../slices/proxy';
 
 // app
 import { AppServices } from '../../../../app.config';
-import { mockFailResponse, mockSuccessResponse } from '../../../utilities/test/api-mock-data';
+import { mockFailResponse, mockSuccessResponse } from '../../../../test/api-mock-data';
 
 // store
 const store = configureStore({
@@ -97,6 +97,9 @@ test('[API] call "fetchApi()" multiple times and validate if old data persists',
 });
 
 test('[API] handle "fetchApi()" exception with status code 400', () => {
+	// mock fetch last time
+	fetch.dontMockOnce();
+
 	// mock implementation to reject api call
 	fetch.mockReject(() => Promise.reject(mockFailResponse()));
 
