@@ -18,12 +18,15 @@ const theme = createMuiTheme({
 			main: '#e01840',
 			contrastText: '#ffffff'
 		},
-		error: {
-			main: '#e74c3c'
-		}
+		error: { main: '#e74c3c' }
 	}
 });
 
+/**
+ * app container
+ * @returns {*}
+ * @constructor
+ */
 const App = () => {
 	return (
 		<MuiThemeProvider theme={theme}>

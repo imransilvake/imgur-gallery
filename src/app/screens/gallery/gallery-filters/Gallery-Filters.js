@@ -1,5 +1,5 @@
 // react
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 // redux
 import { useDispatch } from 'react-redux';
@@ -15,10 +15,18 @@ import Select from '@material-ui/core/Select';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
 
+/**
+ * Filters for Imgur gallery
+ * @returns {*}
+ * @constructor
+ */
 const GalleryFilters = () => {
-	const dispatch = useDispatch();
+	// initialize
 	const isFirstRun = useRef(true);
-	const [state, setState] = React.useState({
+
+	// hooks
+	const dispatch = useDispatch();
+	const [state, setState] = useState({
 		viral: initialState.galleryParams.queryParams.showViral,
 		section: initialState.galleryParams.keyValues.section,
 		sort: initialState.galleryParams.keyValues.sort,
@@ -47,8 +55,11 @@ const GalleryFilters = () => {
 	 * @param event
 	 */
 	const handleChange = (event) => {
+		// validate and process result
 		const { name, value, checked } = event.target;
 		const result = (checked !== undefined) ? checked : value;
+
+		// set hook: setState
 		setState({ ...state, [name]: result });
 	};
 

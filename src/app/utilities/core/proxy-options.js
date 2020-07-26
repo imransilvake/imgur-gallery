@@ -1,11 +1,11 @@
 import { RequestHeaders } from '../../../app.config';
 
 /**
- * returns important headers for the request
+ * add headers for the api
  * @param postApi
  * @returns {*}
  */
-const getHeaders = (postApi) => {
+const addHeaders = (postApi) => {
 	// request headers defined in app config file
 	const headerValues = (postApi) ? RequestHeaders.post : RequestHeaders.get;
 
@@ -127,7 +127,7 @@ const addKeyValues = (url, keyValues) => {
 };
 
 export {
-	getHeaders,
+	addHeaders,
 	addQueryParamsToUrl,
 	addMatrixParamsToUrl,
 	addPathParams,

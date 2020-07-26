@@ -9,6 +9,11 @@ import ENV from '../environment/index';
 const ImgurGallery = React.lazy(() => import('./screens/gallery/Imgur-Gallery'));
 const Error404 = React.lazy(() => import('./screens/404/Error404'));
 
+/**
+ * Routing of the app
+ * @returns {*}
+ * @constructor
+ */
 const AppRouter = () => {
 	return (
 		<Switch>

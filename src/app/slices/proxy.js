@@ -5,7 +5,7 @@ import { original } from 'immer';
 // app
 import {
 	addMatrixParamsToUrl, addPathParams,
-	addKeyValues, addQueryParamsToUrl, getHeaders
+	addKeyValues, addQueryParamsToUrl, addHeaders
 } from '../utilities/core/proxy-options';
 
 // initial state
@@ -43,9 +43,7 @@ const proxySlice = createSlice({
 });
 
 // actions generated from the slice
-export const {
-	proxyLoading, proxySuccess, proxyFailure, proxyReset
-} = proxySlice.actions;
+export const { proxyLoading, proxySuccess, proxyFailure, proxyReset } = proxySlice.actions;
 
 // selector
 export const proxySelector = (state) => state['proxy'];
@@ -87,7 +85,7 @@ export const fetchApi = (api, payload) => {
 
 		// api call
 		try {
-			const response = await fetch(url, getHeaders());
+			const response = await fetch(url, addHeaders());
 			const res = await response.json();
 
 			// validate 200 status code

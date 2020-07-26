@@ -7,6 +7,11 @@ import Logo from '../../../assets/svg/logo.svg';
 import GalleryFilters from './gallery-filters/Gallery-Filters';
 import GalleryList from './gallery-list/Gallery-List';
 
+/**
+ * Imgur Gallery
+ * @returns {*}
+ * @constructor
+ */
 const ImgurGallery = () => {
 	return (
 		<section className="ig-wrapper">

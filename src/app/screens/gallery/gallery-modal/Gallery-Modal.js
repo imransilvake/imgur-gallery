@@ -12,6 +12,13 @@ import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown';
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
+/**
+ * Modal window for gallery items
+ * @param openModal
+ * @param setOpenModal
+ * @returns {*}
+ * @constructor
+ */
 const GalleryModal = ({ openModal, setOpenModal }) => {
 	// src name
 	const name = !openModal['cover'] ? openModal['id'] : openModal['cover'];
