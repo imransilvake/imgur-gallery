@@ -23,9 +23,6 @@ import { Container } from '@material-ui/core';
  * @constructor
  */
 const GalleryList = () => {
-	// initialize
-	const observer = useRef();
-
 	// hooks
 	const dispatch = useDispatch();
 	const { loading, finished, response, errors } = useSelector(proxySelector);
@@ -44,6 +41,7 @@ const GalleryList = () => {
 	 * implement infinite scrolling
 	 * @type {*}
 	 */
+	const observer = useRef();
 	const lastItemFromGalleryRef = useCallback((node) => {
 		// skip if loading
 		if (loading) return;

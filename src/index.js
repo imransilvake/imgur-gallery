@@ -15,7 +15,8 @@ import App from './app/App';
 const store = configureStore({
 	reducer: rootReducer,
 	middleware: [...getDefaultMiddleware({
-		serializableCheck: false, immutableCheck: false
+		serializableCheck: false,
+		immutableCheck: false
 	})]
 });
 

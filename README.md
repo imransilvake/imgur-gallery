@@ -12,10 +12,10 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
 ```
 
 #### key / value: (optional)
-- section: hot (default) | top | user
-- sort: viral (default) | top | time | rising (only available with user section) 
+- section: hot | top | user
+- sort: viral | top | time | rising (only available with user section) 
 - page: integer
-- window: day (default) | week | month | year | all
+- window: day | week | month | year | all
     
 #### Params (optional)
 - showViral: Show or hide viral images from the user section. Defaults to true

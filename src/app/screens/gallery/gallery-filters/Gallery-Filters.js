@@ -81,7 +81,7 @@ const GalleryFilters = () => {
 
 	return (
 		<Container maxWidth="md" className="ig-gallery-filters">
-			<form data-testid="filter-form">
+			<form data-testid="ig-filter-form">
 				<div className="ig-content">
 					{/* Left */}
 					<div className="ig-left">
@@ -97,7 +97,8 @@ const GalleryFilters = () => {
 									onChange={handleChange}
 									checked={state.viral} />
 							)}
-							label="Show Viral" />
+							label="Show Viral"
+							data-testid="ig-switch" />
 					</div>
 
 					{/* Right */}
@@ -129,8 +130,7 @@ const GalleryFilters = () => {
 								className="ig-select-wrapper"
 								classes={{
 									select: 'ig-select'
-								}}
-								data-testid="sort">
+								}}>
 								<MenuItem value="viral">Viral</MenuItem>
 								<MenuItem value="top">Top</MenuItem>
 								<MenuItem value="time">Time</MenuItem>
