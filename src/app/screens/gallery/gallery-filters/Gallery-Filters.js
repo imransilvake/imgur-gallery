@@ -68,82 +68,89 @@ const GalleryFilters = () => {
 
 	return (
 		<Container maxWidth="md" className="ig-gallery-filters">
-			<div className="ig-content">
-				{/* Left */}
-				<div className="ig-left">
-					<FormControlLabel
-						className="ig-switch"
-						classes={{
-							label: 'ig-label'
-						}}
-						control={(
-							<Switch
-								name="viral"
-								color="primary"
+			<form data-testid="filter-form">
+				<div className="ig-content">
+					{/* Left */}
+					<div className="ig-left">
+						<FormControlLabel
+							className="ig-switch"
+							classes={{
+								label: 'ig-label'
+							}}
+							control={(
+								<Switch
+									name="viral"
+									color="primary"
+									onChange={handleChange}
+									checked={state.viral} />
+							)}
+							label="Show Viral" />
+					</div>
+
+					{/* Right */}
+					<div className="ig-right">
+						<div className="ig-item">
+							<FormHelperText className="ig-helper">Section</FormHelperText>
+							<Select
+								variant="filled"
+								name="section"
+								value={state.section}
 								onChange={handleChange}
-								checked={state.viral} />
-						)}
-						label="Show Viral" />
-				</div>
+								className="ig-select-wrapper"
+								classes={{
+									select: 'ig-select'
+								}}>
+								<MenuItem value="hot">Hot</MenuItem>
+								<MenuItem value="top">Top</MenuItem>
+								<MenuItem value="user">User</MenuItem>
+							</Select>
+						</div>
 
-				{/* Right */}
-				<div className="ig-right">
-					<div className="ig-item">
-						<FormHelperText className="ig-helper">Section</FormHelperText>
-						<Select
-							label="hello"
-							variant="filled"
-							name="section"
-							value={state.section}
-							onChange={handleChange}
-							className="ig-select-wrapper"
-							classes={{
-								select: 'ig-select'
-							}}>
-							<MenuItem value="hot">Hot</MenuItem>
-							<MenuItem value="top">Top</MenuItem>
-							<MenuItem value="user">User</MenuItem>
-						</Select>
-					</div>
+						<div className="ig-item">
+							<FormHelperText className="ig-helper">Sort</FormHelperText>
+							<Select
+								variant="filled"
+								name="sort"
+								value={state.sort}
+								onChange={handleChange}
+								className="ig-select-wrapper"
+								classes={{
+									select: 'ig-select'
+								}}
+								data-testid="sort">
+								<MenuItem value="viral">Viral</MenuItem>
+								<MenuItem value="top">Top</MenuItem>
+								<MenuItem value="time">Time</MenuItem>
+								<MenuItem
+									value="rising"
+									disabled={state.section !== 'user'}
+									className="sort-rising">
+									Rising
+								</MenuItem>
+							</Select>
+						</div>
 
-					<div className="ig-item">
-						<FormHelperText className="ig-helper">Sort</FormHelperText>
-						<Select
-							variant="filled"
-							name="sort"
-							value={state.sort}
-							onChange={handleChange}
-							className="ig-select-wrapper"
-							classes={{
-								select: 'ig-select'
-							}}>
-							<MenuItem value="viral">Viral</MenuItem>
-							<MenuItem value="top">Top</MenuItem>
-							<MenuItem value="time">Time</MenuItem>
-							<MenuItem value="rising" disabled={state.section !== 'user'}>Rising</MenuItem>
-						</Select>
-					</div>
-
-					<div className="ig-item">
-						<FormHelperText className="ig-helper">Window</FormHelperText>
-						<Select
-							variant="filled"
-							name="window"
-							value={state.window}
-							onChange={handleChange}
-							className="ig-select-wrapper"
-							classes={{
-								select: 'ig-select'
-							}}>
-							<MenuItem value="day">Day</MenuItem>
-							<MenuItem value="week">Week</MenuItem>
-							<MenuItem value="month">Month</MenuItem>
-							<MenuItem value="year">Year</MenuItem>
-							<MenuItem value="all">All</MenuItem>
-						</Select>
+						<div className="ig-item">
+							<FormHelperText className="ig-helper">Window</FormHelperText>
+							<Select
+								variant="filled"
+								name="window"
+								value={state.window}
+								onChange={handleChange}
+								className="ig-select-wrapper"
+								classes={{
+									select: 'ig-select'
+								}}>
+								<MenuItem value="day">Day</MenuItem>
+								<MenuItem value="week">Week</MenuItem>
+								<MenuItem value="month">Month</MenuItem>
+								<MenuItem value="year">Year</MenuItem>
+								<MenuItem value="all">All</MenuItem>
+							</Select>
+						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</Container>
 	);
 };
