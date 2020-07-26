@@ -1,6 +1,9 @@
 // react
 import React, { useState, useRef, useEffect } from 'react';
 
+// app
+import './Lazy-Load-Image.scss';
+
 /**
  * lazy load image
  * @param src
@@ -37,13 +40,7 @@ const LazyLoadImage = ({ src, alt }) => {
 	return (showImage) ? (
 		<img src={src} alt={alt} />
 	) : (
-		<div
-			data-testid="ig-placeholder"
-			ref={placeHolderRef}
-			style={{
-				display: 'block',
-				height: '200px'
-			}} />
+		<div data-testid="ig-placeholder" className="ig-placeholder" ref={placeHolderRef} />
 	);
 };
 export default LazyLoadImage;
