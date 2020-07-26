@@ -116,10 +116,10 @@ const addPathParams = (url, pathParams) => {
  */
 const addKeyValues = (url, keyValues) => {
 	let newUrl = url;
-	if (addKeyValues) {
-		Object.keys(addKeyValues).forEach((key) => {
-			if (Object.prototype.hasOwnProperty.call(addKeyValues, key)) {
-				newUrl = newUrl.replace(`{${key}}`, addKeyValues[key]);
+	if (keyValues) {
+		Object.keys(keyValues).forEach((key) => {
+			if (Object.prototype.hasOwnProperty.call(keyValues, key)) {
+				newUrl = newUrl.replace(`{${key}}`, keyValues[key]);
 			}
 		});
 	}
