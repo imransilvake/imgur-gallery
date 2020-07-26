@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // redux
 import { useDispatch } from 'react-redux';
-import { galleryFilters, galleryReset, initialState } from '../../../slices/gallery';
+import { galleryFilters, galleryReset, initialState, SECTION_DEFAULT } from '../../../slices/gallery';
 import { proxyReset } from '../../../slices/proxy';
 
 // app
@@ -55,14 +55,27 @@ const GalleryFilters = () => {
 	 * @param event
 	 */
 	const handleChange = (event) => {
-		// validate and process result
+		// destruct
 		const { name, value, checked } = event.target;
+
+		// validate switch (boolean) vs select (string)
 		const result = (checked !== undefined) ? checked : value;
+
+		// validate sort on change of section
+		const part = (name === 'section' || name === 'sort') ? {
+			[name]: result,
+			sort: {
+				value: name === 'sort' ? result : state.sort.value,
+				disabled: name === 'section' ? result !== SECTION_DEFAULT : state.sort.disabled
+			}
+		} : {
+			[name]: result
+		};
 
 		// set hook: setState
 		setState({
 			...state,
-			[name]: result
+			...part
 		});
 	};
 
@@ -111,7 +124,7 @@ const GalleryFilters = () => {
 							<Select
 								variant="filled"
 								name="sort"
-								value={state.sort}
+								value={state.sort.value}
 								onChange={handleChange}
 								className="ig-select-wrapper"
 								classes={{
@@ -123,7 +136,7 @@ const GalleryFilters = () => {
 								<MenuItem value="time">Time</MenuItem>
 								<MenuItem
 									value="rising"
-									disabled={state.section !== 'user'}
+									disabled={state.sort.disabled}
 									className="sort-rising">
 									Rising
 								</MenuItem>

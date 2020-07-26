@@ -2,6 +2,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { original } from 'immer';
 
+// constants
+export const SECTION_DEFAULT = 'user';
+const SORT_DEFAULT = 'viral';
+const WINDOW_DEFAULT = 'all';
+
 // initial state
 export const initialState = {
 	galleryParams: {
@@ -10,9 +15,12 @@ export const initialState = {
 			album_previews: true
 		},
 		keyValues: {
-			section: 'user',
-			sort: 'viral',
-			window: 'all',
+			section: SECTION_DEFAULT,
+			sort: {
+				value: SORT_DEFAULT,
+				disabled: false
+			},
+			window: WINDOW_DEFAULT,
 			page: 0
 		}
 	}
@@ -34,7 +42,10 @@ const gallerySlice = createSlice({
 				keyValues: {
 					...gParams.keyValues,
 					section: payload.section,
-					sort: payload.sort,
+					sort: {
+						value: payload.sort.value,
+						disabled: payload.section !== SECTION_DEFAULT
+					},
 					window: payload.window
 				}
 			};

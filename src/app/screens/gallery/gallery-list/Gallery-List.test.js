@@ -6,7 +6,7 @@ import { fetchApi } from '../../../slices/proxy';
 
 // app
 import { AppServices } from '../../../../app.config';
-import { mockFailResponse, mockSuccessResponse } from '../../../utilities/test/fetch-mock-data';
+import { mockFailResponse, mockSuccessResponse } from '../../../utilities/test/api-mock-data';
 
 // store
 const store = configureStore({
