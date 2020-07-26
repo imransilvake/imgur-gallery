@@ -12,9 +12,7 @@ import { v4 as uuid4 } from 'uuid';
 // app
 import './Gallery-List.scss';
 import Loader from '../../../../assets/images/loader.gif';
-import ScrollTop from '../../../../assets/svg/scroll-top.svg';
 import { AppServices } from '../../../../app.config';
-import scrollToTop from '../../../utilities/helpers/Helper';
 import GalleryModal from '../gallery-modal/Gallery-Modal';
 import LazyLoadImage from '../../../components/lazy-load-image/Lazy-Load-Image';
 import { Container } from '@material-ui/core';
@@ -34,7 +32,6 @@ const GalleryList = () => {
 	const { galleryParams } = useSelector(gallerySelector);
 	const [openModal, setOpenModal] = useState(false);
 
-	// fetch api data
 	useEffect(() => {
 		// fetch api
 		dispatch(fetchApi(
@@ -133,13 +130,6 @@ const GalleryList = () => {
 						<img src={Loader} alt="load more" />
 					</div>
 				)}
-			</div>
-
-			{/* Scroll To Top */}
-			<div className="ig-page-top">
-				<button type="button" onClick={scrollToTop}>
-					<img src={ScrollTop} alt="load more" />
-				</button>
 			</div>
 
 			{/* Gallery Modal */}

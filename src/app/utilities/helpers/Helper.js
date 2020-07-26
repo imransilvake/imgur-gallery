@@ -3,7 +3,7 @@
  */
 const scrollToTop = () => {
 	const scrollSpeed = 400;
-	const scrollDuration = scrollSpeed / 10;
+	const scrollDuration = scrollSpeed / 25;
 	const scrollStep = -window.scrollY / scrollDuration;
 	const scrollInterval = setInterval(() => {
 		if (window.scrollY !== 0) {
