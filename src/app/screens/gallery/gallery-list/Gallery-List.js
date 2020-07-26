@@ -16,7 +16,7 @@ import ScrollTop from '../../../../assets/svg/scroll-top.svg';
 import { AppServices } from '../../../../app.config';
 import scrollToTop from '../../../utilities/helpers/Helper';
 import GalleryModal from '../gallery-modal/Gallery-Modal';
-import LazyLoadImage from '../Lazy-Load-Image';
+import LazyLoadImage from '../../../components/lazy-load-image/Lazy-Load-Image';
 import { Container } from '@material-ui/core';
 
 /**
