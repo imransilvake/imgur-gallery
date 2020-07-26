@@ -20,9 +20,9 @@ const GalleryFilters = () => {
 	const isFirstRun = useRef(true);
 	const [state, setState] = React.useState({
 		viral: initialState.galleryParams.queryParams.showViral,
-		section: initialState.galleryParams.pathValues.section,
-		sort: initialState.galleryParams.pathValues.sort,
-		window: initialState.galleryParams.pathValues.window
+		section: initialState.galleryParams.keyValues.section,
+		sort: initialState.galleryParams.keyValues.sort,
+		window: initialState.galleryParams.keyValues.window
 	});
 
 	useEffect(() => {

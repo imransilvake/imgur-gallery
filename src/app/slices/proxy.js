@@ -5,7 +5,7 @@ import { original } from 'immer';
 // app
 import {
 	addMatrixParamsToUrl, addPathParams,
-	addPathValues, addQueryParamsToUrl, getHeaders
+	addKeyValues, addQueryParamsToUrl, getHeaders
 } from '../utilities/core/proxy-options';
 
 // initial state
@@ -27,6 +27,7 @@ const proxySlice = createSlice({
 		proxySuccess: (state, { payload }) => {
 			const oldState = original(state.response);
 			const newData = (oldState && oldState.data) ? [...oldState.data, ...payload.data] : payload.data;
+
 			state.finished = payload.data.length === 0;
 			state.loading = false;
 			state.response = { ...payload, data: newData };
@@ -74,9 +75,9 @@ export const fetchApi = (api, payload) => {
 			url = `${addPathParams(url, payload['pathParams'])}`;
 		}
 
-		// path values
-		if (payload['pathValues']) {
-			url = `${addPathValues(url, payload['pathValues'])}`;
+		// key values
+		if (payload['keyValues']) {
+			url = `${addKeyValues(url, payload['keyValues'])}`;
 		}
 
 		// matrix params

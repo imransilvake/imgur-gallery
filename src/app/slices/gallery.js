@@ -2,13 +2,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { original } from 'immer';
 
+// initial state
 export const initialState = {
 	galleryParams: {
 		queryParams: {
 			showViral: true,
 			album_previews: true
 		},
-		pathValues: {
+		keyValues: {
 			section: 'user',
 			sort: 'viral',
 			window: 'all',
@@ -30,8 +31,8 @@ const gallerySlice = createSlice({
 					...gParams.queryParams,
 					showViral: payload.viral
 				},
-				pathValues: {
-					...gParams.pathValues,
+				keyValues: {
+					...gParams.keyValues,
 					section: payload.section,
 					sort: payload.sort,
 					window: payload.window
@@ -42,9 +43,9 @@ const gallerySlice = createSlice({
 			const gParams = original(state.galleryParams);
 			state.galleryParams = {
 				...gParams,
-				pathValues: {
-					...gParams.pathValues,
-					page: gParams.pathValues.page + 1
+				keyValues: {
+					...gParams.keyValues,
+					page: gParams.keyValues.page + 1
 				}
 			};
 		},

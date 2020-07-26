@@ -108,18 +108,18 @@ const addPathParams = (url, pathParams) => {
 };
 
 /**
- * adds path values
+ * adds key values
  * example: /{section}/{sort}/{window}/{page}
  * @param url
- * @param pathValues
+ * @param keyValues
  * @returns {*}
  */
-const addPathValues = (url, pathValues) => {
+const addKeyValues = (url, keyValues) => {
 	let newUrl = url;
-	if (pathValues) {
-		Object.keys(pathValues).forEach((key) => {
-			if (Object.prototype.hasOwnProperty.call(pathValues, key)) {
-				newUrl = newUrl.replace(`{${key}}`, pathValues[key]);
+	if (addKeyValues) {
+		Object.keys(addKeyValues).forEach((key) => {
+			if (Object.prototype.hasOwnProperty.call(addKeyValues, key)) {
+				newUrl = newUrl.replace(`{${key}}`, addKeyValues[key]);
 			}
 		});
 	}
@@ -131,5 +131,5 @@ export {
 	addQueryParamsToUrl,
 	addMatrixParamsToUrl,
 	addPathParams,
-	addPathValues
+	addKeyValues
 };

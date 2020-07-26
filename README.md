@@ -11,11 +11,11 @@ An Imgur based app that allows one to browse the Imgur gallery. It is built usin
 https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showViral={{showViral}}&album_previews={{albumPreviews}}
 ```
 
-#### key / value
-- section (optional): hot (default) | top | user
-- sort (optional): viral (default) | top | time | rising (only available with user section) 
-- page (optional): integer
-- window (optional): day (default) | week | month | year | all
+#### key / value: (optional)
+- section: hot (default) | top | user
+- sort: viral (default) | top | time | rising (only available with user section) 
+- page: integer
+- window: day (default) | week | month | year | all
     
 #### Params (optional)
 - showViral: Show or hide viral images from the user section. Defaults to true
