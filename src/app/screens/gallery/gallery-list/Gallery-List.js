@@ -38,7 +38,7 @@ const GalleryList = () => {
 	useEffect(() => {
 		// fetch api
 		dispatch(fetchApi(
-			AppServices.GALLERY.GET_GALLERY.URL, {
+			AppServices.GALLERY.FETCH.URL, {
 				...galleryParams
 			}
 		));
