@@ -6,7 +6,7 @@ import { fetchApi } from '../../../slices/proxy';
 
 // app
 import { AppServices } from '../../../../app.config';
-import { mockFailResponse, mockSuccessResponse } from '../../../utilities/test/api-mock-data';
+import { mockFailResponse } from '../../../utilities/test/api-mock-data';
 
 // store
 const store = configureStore({
@@ -14,11 +14,6 @@ const store = configureStore({
 	middleware: [...getDefaultMiddleware({
 		serializableCheck: false, immutableCheck: false
 	})]
-});
-
-// before each
-beforeEach(() => {
-	fetch.resetMocks();
 });
 
 test('[Paging] initial page number must be "0"', () => {
@@ -41,8 +36,8 @@ test('[Paging] on fifth call to "galleryNextPage()" the page number must be "5"'
 });
 
 test('[API] call "fetchApi()" and validate status code equal to 200', () => {
-	// mock response data
-	fetch.mockResponseOnce(JSON.stringify(mockSuccessResponse()));
+	// mock response data (to avoid real api calls)
+	// fetch.mockResponseOnce(JSON.stringify(mockSuccessResponse()));
 
 	// reset gallery state
 	store.dispatch(galleryReset());
@@ -56,8 +51,8 @@ test('[API] call "fetchApi()" and validate status code equal to 200', () => {
 });
 
 test('[API] call "fetchApi()" and validate if it contains at-least one item', () => {
-	// mock response data
-	fetch.mockResponseOnce(JSON.stringify(mockSuccessResponse()));
+	// mock response data (to avoid real api calls)
+	// fetch.mockResponseOnce(JSON.stringify(mockSuccessResponse()));
 
 	// reset gallery state
 	store.dispatch(galleryReset());
