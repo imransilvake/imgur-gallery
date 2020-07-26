@@ -39,6 +39,7 @@
         "eslint-config-airbnb": "^18.2.0",
         "eslint-plugin-jest": "^23.18.1",
         "eslint-plugin-react": "^7.20.3",
+        "jest-fetch-mock": "^3.0.3",
         "node-sass": "^4.14.1",
         "stylelint": "^13.6.1",
         "stylelint-order": "^4.1.0"

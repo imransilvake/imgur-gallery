@@ -32,10 +32,11 @@ const proxySlice = createSlice({
 			};
 			state.errors = null;
 		},
-		proxyFailure: (state, { error }) => {
+		proxyFailure: (state, { payload }) => {
 			state.loading = false;
+			state.finished = true;
 			state.response = {};
-			state.errors = error;
+			state.errors = payload;
 		},
 		proxyReset: () => initialState
 	}

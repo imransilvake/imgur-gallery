@@ -14,7 +14,9 @@ import App from './app/App';
 // store
 const store = configureStore({
 	reducer: rootReducer,
-	middleware: [...getDefaultMiddleware({ serializableCheck: false, immutableCheck: false })]
+	middleware: [...getDefaultMiddleware({
+		serializableCheck: false, immutableCheck: false
+	})]
 });
 
 ReactDOM.render(

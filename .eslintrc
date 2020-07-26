@@ -26,6 +26,7 @@
 		"import/order": 0,
 		"no-use-before-define": 0,
 		"dot-notation": 0,
+		"import/no-extraneous-dependencies": 0,
 		"object-curly-newline": ["error", {
 			"ObjectExpression": { "multiline": true, "minProperties": 1 },
 			"ObjectPattern": { "multiline": true, "minProperties": 5 },
