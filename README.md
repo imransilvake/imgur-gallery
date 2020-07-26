@@ -30,7 +30,12 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
     - [X] Filter the images based on: hot, top, user
     - [X] Include or exclude viral images from the result set
     - [X] Filter based on a window and sort parameters
-- [ ] Unit test cases
+
+
+## Unit Test
+<p align="center">
+	<img src="unit-test.png" width="100%">
+</p>
 
 
 ## Libraries and Frameworks
