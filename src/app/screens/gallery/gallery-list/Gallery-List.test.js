@@ -1,8 +1,8 @@
 // redux
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import rootReducer from '../../../slices';
-import { galleryNextPage, galleryReset } from '../../../slices/gallery';
-import { fetchApi, proxyReset } from '../../../slices/proxy';
+import { galleryNextPage, galleryReset } from '../../../slices/gallery/gallery';
+import { fetchApi, proxyReset } from '../../../slices/proxy/proxy';
 
 // app
 import { AppServices } from '../../../../app.config';

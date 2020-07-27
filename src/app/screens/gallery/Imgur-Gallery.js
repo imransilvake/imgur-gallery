@@ -1,13 +1,12 @@
 // react
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 // app
 import './Imgur-Gallery.scss';
 import Logo from '../../../assets/svg/logo.svg';
 import GalleryFilters from './gallery-filters/Gallery-Filters';
 import GalleryList from './gallery-list/Gallery-List';
-import scrollToTop from '../../utilities/helpers/Helper';
-import ScrollTop from '../../../assets/svg/scroll-top.svg';
+import ScrollTopTop from '../../components/scroll-to-top/Scroll-To-Top';
 
 /**
  * Imgur Gallery
@@ -15,29 +14,6 @@ import ScrollTop from '../../../assets/svg/scroll-top.svg';
  * @constructor
  */
 const ImgurGallery = () => {
-	const [scrollView, setScrollView] = useState(false);
-
-	useEffect(() => {
-		// validate scroll position
-		const handleScroll = () => {
-			if (window.scrollY > 250) {
-				if (!scrollView) {
-					// set hook: setScrollView
-					setScrollView(true);
-				}
-			} else if (scrollView) {
-				// set hook: setScrollView
-				setScrollView(false);
-			}
-		};
-
-		// listener
-		window.addEventListener('scroll', handleScroll);
-
-		// clean up
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, [scrollView, setScrollView]);
-
 	return (
 		<section className="ig-wrapper">
 			{/* Header */}
@@ -52,13 +28,7 @@ const ImgurGallery = () => {
 			<GalleryList />
 
 			{/* Scroll To Top */}
-			{scrollView && (
-				<div className="ig-page-top">
-					<button type="button" onClick={scrollToTop}>
-						<img src={ScrollTop} alt="load more" />
-					</button>
-				</div>
-			)}
+			<ScrollTopTop />
 		</section>
 	);
 };

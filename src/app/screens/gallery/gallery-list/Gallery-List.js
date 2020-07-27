@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { proxySelector, fetchApi } from '../../../slices/proxy';
-import { gallerySelector, galleryNextPage } from '../../../slices/gallery';
+import { proxySelector, fetchApi } from '../../../slices/proxy/proxy';
+import { gallerySelector, galleryNextPage } from '../../../slices/gallery/gallery';
 
 // uuid
 import { v4 as uuid4 } from 'uuid';

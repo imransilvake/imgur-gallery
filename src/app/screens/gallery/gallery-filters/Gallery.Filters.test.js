@@ -9,7 +9,7 @@ import rootReducer from '../../../slices';
 
 // app
 import GalleryFilters from './Gallery-Filters';
-import { galleryFilters } from '../../../slices/gallery';
+import { galleryFilters } from '../../../slices/gallery/gallery';
 
 // store
 const store = configureStore({

@@ -3,8 +3,8 @@ import React, { useEffect, useRef, useState } from 'react';
 
 // redux
 import { useDispatch } from 'react-redux';
-import { galleryFilters, galleryReset, initialState, SECTION_DEFAULT } from '../../../slices/gallery';
-import { proxyReset } from '../../../slices/proxy';
+import { galleryFilters, galleryReset, initialState, SECTION_DEFAULT } from '../../../slices/gallery/gallery';
+import { proxyReset } from '../../../slices/proxy/proxy';
 
 // app
 import './Gallery-Filters.scss';

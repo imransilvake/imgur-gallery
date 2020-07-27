@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { original } from 'immer';
 
 // app
-import { addMatrixParamsToUrl, addPathParams, addKeyValues, addQueryParamsToUrl, addHeaders } from '../utilities/core/proxy-options';
+import { addMatrixParamsToUrl, addPathParams, addKeyValues, addQueryParamsToUrl, addHeaders } from './proxy-options';
 
 // initial state
 export const initialState = {

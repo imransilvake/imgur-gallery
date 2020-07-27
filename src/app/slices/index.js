@@ -2,8 +2,8 @@
 import { combineReducers } from 'redux';
 
 // app
-import proxyReducer from './proxy';
-import galleryReducer from './gallery';
+import proxyReducer from './proxy/proxy';
+import galleryReducer from './gallery/gallery';
 
 // combine reducers
 const rootReducer = combineReducers({
