@@ -77,6 +77,8 @@ const GalleryList = () => {
 
 	/**
 	 * display gallery images
+	 * note: there are sometimes same post repeated more than once so therefore we can't use item['id'] as a unique key.
+	 * therefore it is ok to use combination of (item['id'] and index) to stop unnecessary renders
 	 */
 	const displayGallery = () => {
 		// gallery
