@@ -47,7 +47,7 @@ const GalleryList = () => {
 		if (loading) return;
 
 		// disconnect observer
-		if (observer.current) observer.current.disconnect();
+		if (observer.current && observer.current.root !== undefined) observer.current.disconnect();
 
 		// observer
 		observer.current = new IntersectionObserver((entries) => {
@@ -92,7 +92,8 @@ const GalleryList = () => {
 							className="ig-item-button"
 							key={uuid4()}
 							ref={(response['data'].length - 15) === index ? lastItemFromGalleryRef : null}
-							onClick={() => setOpenModal(item)}>
+							onClick={() => setOpenModal(item)}
+							data-testid={`ig-item-button-${index}`}>
 							<div className="ig-item">
 								{/* Image */}
 								{ setImage(item) }
@@ -131,7 +132,7 @@ const GalleryList = () => {
 			</div>
 
 			{/* Gallery Modal */}
-			<GalleryModal openModal={openModal} setOpenModal={setOpenModal} />
+			{openModal && <GalleryModal openModal={openModal} setOpenModal={setOpenModal} />}
 		</Container>
 	);
 };

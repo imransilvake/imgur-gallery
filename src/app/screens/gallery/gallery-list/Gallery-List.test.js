@@ -99,7 +99,7 @@ test('[API] call "fetchApi()" multiple times and validate if old data persists',
 
 test('[API] handle "fetchApi()" exception with status code 400', () => {
 	// mock fetch last time
-	fetch.dontMockOnce();
+	fetch.doMockOnce();
 
 	// mock implementation to reject api call
 	fetch.mockReject(() => Promise.reject(mockFailResponse()));
