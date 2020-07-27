@@ -33,8 +33,8 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
 
 
 ## Unit Test
-<p align="center">
-	<img src="unit-test.png" width="100%">
+<p align="left">
+	<img src="unit-test.png" width="50%">
 </p>
 
 
