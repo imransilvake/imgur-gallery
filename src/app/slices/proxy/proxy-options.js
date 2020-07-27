@@ -123,7 +123,8 @@ const addKeyValues = (url, keyValues) => {
 	if (keyValues) {
 		Object.keys(keyValues).forEach((key) => {
 			if (Object.prototype.hasOwnProperty.call(keyValues, key)) {
-				newUrl = newUrl.replace(`{${key}}`, keyValues[key]);
+				const value = typeof keyValues[key] === 'object' ? keyValues[key]['value'] : keyValues[key];
+				newUrl = newUrl.replace(`{${key}}`, value);
 			}
 		});
 	}
