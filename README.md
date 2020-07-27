@@ -46,7 +46,6 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
 - [X] [Redux Devtools Extension](https://github.com/zalmoxisus/redux-devtools-extension)
 - [X] [Material-UI](https://material-ui.com/)
 - [X] [FontAwesome](https://fontawesome.com/)
-- [X] [uuid](https://github.com/uuidjs/uuid/)
 - [X] [Jest Fetch Mock](https://github.com/jefflau/jest-fetch-mock/)
 
 

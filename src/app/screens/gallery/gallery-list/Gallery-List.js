@@ -6,9 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { proxySelector, fetchApi } from '../../../slices/proxy/proxy';
 import { gallerySelector, galleryNextPage } from '../../../slices/gallery/gallery';
 
-// uuid
-import { v4 as uuid4 } from 'uuid';
-
 // app
 import './Gallery-List.scss';
 import Loader from '../../../../assets/images/loader.gif';
@@ -90,7 +87,7 @@ const GalleryList = () => {
 						<button
 							type="button"
 							className="ig-item-button"
-							key={uuid4()}
+							key={`${item.id}-${index}`}
 							ref={(response['data'].length - 15) === index ? lastItemFromGalleryRef : null}
 							onClick={() => setOpenModal(item)}
 							data-testid={`ig-item-button-${index}`}>
