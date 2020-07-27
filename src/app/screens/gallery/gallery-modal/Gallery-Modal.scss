@@ -24,7 +24,7 @@
 			right: 0;
 			z-index: 1;
 
-			.ig-title {
+			.ig-title-desc {
 				border-bottom: 1px solid var(--c7);
 				border-top: 1px solid var(--c7);
 				padding: 15px 10px;
@@ -33,6 +33,11 @@
 					font-size: fontSize(16px);
 					font-weight: 400;
 					margin: 0;
+				}
+
+				p {
+					font-size: fontSize(15px);
+					margin: 14px 0 0;
 				}
 			}
 

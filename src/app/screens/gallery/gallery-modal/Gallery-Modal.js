@@ -41,18 +41,18 @@ const GalleryModal = ({ openModal, setOpenModal }) => {
 				)}
 
 				<div className="ig-content">
-					<div className="ig-title">
+					<div className="ig-title-desc">
 						{/* Title */}
 						{!!openModal.title && (
 							<h3>{openModal.title}</h3>
 						)}
+
+						{/* Description */}
+						{!!openModal.description && (
+							<p>{openModal.description}</p>
+						)}
 					</div>
 					<div className="ig-info">
-						{/* Content */}
-						{!!openModal.description && (
-							<div>{openModal.description}</div>
-						)}
-
 						{/* Up-votes */}
 						{!!openModal['ups'] && (
 							<Tooltip title="up-votes">
