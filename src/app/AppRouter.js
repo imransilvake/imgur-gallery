@@ -1,13 +1,13 @@
 // react
-import React from 'react';
+import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // app
 import ENV from '../environment/index';
 
 // lazy load components
-const ImgurGallery = React.lazy(() => import('./screens/gallery/Imgur-Gallery'));
-const Error404 = React.lazy(() => import('./screens/404/Error404'));
+const ImgurGallery = lazy(() => import('./screens/gallery/Imgur-Gallery'));
+const Error404 = lazy(() => import('./screens/404/Error404'));
 
 /**
  * Routing of the app
