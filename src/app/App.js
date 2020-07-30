@@ -1,5 +1,5 @@
 // react
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 // app
@@ -39,7 +39,7 @@ const appStyles = {
 const App = () => {
 	return (
 		<MuiThemeProvider theme={theme}>
-			<React.Suspense fallback={(<LinearProgress style={appStyles.linearProgress} />)}>
+			<Suspense fallback={(<LinearProgress style={appStyles.linearProgress} />)}>
 				<BrowserRouter>
 					{/* Header */}
 
@@ -47,7 +47,7 @@ const App = () => {
 
 					{/* Footer */}
 				</BrowserRouter>
-			</React.Suspense>
+			</Suspense>
 		</MuiThemeProvider>
 	);
 };
