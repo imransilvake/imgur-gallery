@@ -1,6 +1,9 @@
 // react
 import React from 'react';
 
+// app
+import './Error404.scss';
+
 /**
  * 404 page
  * @returns {*}
@@ -8,8 +11,8 @@ import React from 'react';
  */
 const Error404 = () => {
 	return (
-		<section className="sc-app">
-			<h2>404</h2>
+		<section className="ig-vh-center ig-e404">
+			<h1>404</h1>
 			<p>Page not found</p>
 		</section>
 	);

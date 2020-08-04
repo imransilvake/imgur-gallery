@@ -11,13 +11,13 @@ An Imgur based app that allows one to browse the Imgur gallery. The lazy-loading
 https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showViral={{showViral}}&album_previews={{albumPreviews}}
 ```
 
-#### key / value: (optional)
+#### key / value
 - section: hot | top | user
 - sort: viral | top | time | rising (only available with user section) 
 - page: integer
 - window: day | week | month | year | all
     
-#### Params (optional)
+#### Params
 - showViral: Show or hide viral images from the user section. Defaults to true
 - album_previews: Include image metadata for gallery posts which are albums
 
