@@ -18,7 +18,7 @@ const LazyLoadImage = ({ src, alt }) => {
 
 	useEffect(() => {
 		// intersection observer
-		const io = new IntersectionObserver((entries, imgObserver) => {
+		const io = new IntersectionObserver((entries, observer) => {
 			entries.forEach((entry) => {
 				// return when not intersecting
 				if (!entry.isIntersecting) return;
@@ -27,7 +27,7 @@ const LazyLoadImage = ({ src, alt }) => {
 				setShowImage(true);
 
 				// disconnect
-				imgObserver.disconnect();
+				observer.disconnect();
 			});
 		});
 

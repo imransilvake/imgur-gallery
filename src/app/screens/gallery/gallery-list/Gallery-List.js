@@ -35,6 +35,12 @@ const GalleryList = () => {
 
 	/**
 	 * implement infinite scrolling using Intersection Observer API
+	 *
+	 * note:
+	 * keep in mind that useRef doesn't notify you when its content changes.
+	 * mutating the .current property doesn't cause a re-render.
+	 * if you want to run some code when React attaches or detaches a ref to a DOM node,
+	 * you may want to use a callback ref instead.
 	 * @type {*}
 	 */
 	const observer = useRef();
@@ -44,12 +50,12 @@ const GalleryList = () => {
 		// 2) when all data is loaded
 		if (loading || finished) return;
 
-		// disconnect the observer
+		// disconnect the intersection observer
 		if (observer.current && observer.current.root !== undefined) {
 			observer.current.disconnect();
 		}
 
-		// reconnect the observer
+		// re-create intersection observer
 		observer.current = new IntersectionObserver((entries) => {
 			if (entries[0].isIntersecting) {
 				// call next set of items
@@ -57,7 +63,7 @@ const GalleryList = () => {
 			}
 		});
 
-		// observe node
+		// watch the target node
 		if (node) observer.current.observe(node);
 	}, [dispatch, loading, finished]);
 
