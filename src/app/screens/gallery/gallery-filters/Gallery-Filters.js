@@ -18,7 +18,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import './Gallery-Filters.scss';
 
 /**
- * Filters for Imgur gallery
+ * filters for Imgur gallery
  * @returns {*}
  * @constructor
  */

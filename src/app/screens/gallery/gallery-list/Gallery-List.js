@@ -34,7 +34,7 @@ const GalleryList = () => {
 	}, [dispatch, galleryParams]);
 
 	/**
-	 * implement infinite scrolling
+	 * implement infinite scrolling using Intersection Observer API
 	 * @type {*}
 	 */
 	const observer = useRef();
@@ -124,7 +124,7 @@ const GalleryList = () => {
 		<Container maxWidth="md" className="ig-gallery-list">
 			{/* Gallery | Error | Loader */}
 			<div className="ig-content">
-				{/* Gallery */}
+				{/* Gallery | Error */}
 				{ displayGallery() }
 
 				{/* Loader */}

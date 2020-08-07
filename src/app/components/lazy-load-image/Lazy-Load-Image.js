@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Lazy-Load-Image.scss';
 
 /**
- * lazy load image
+ * lazy load image using Intersection Observer API
  * @param src
  * @param alt
  * @returns {*}
