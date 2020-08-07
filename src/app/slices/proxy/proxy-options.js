@@ -114,6 +114,7 @@ const addPathParams = (url, pathParams) => {
 /**
  * adds key values
  * example: /{section}/{sort}/{window}/{page}
+ * example: /user/viral/all/0
  * @param url
  * @param keyValues
  * @returns {*}

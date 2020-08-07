@@ -8,10 +8,10 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 // app
 import './App.scss';
-import Logo from "../assets/svg/logo.svg";
+import Logo from '../assets/svg/logo.svg';
 import AppRouter from './AppRouter';
 
-// theme setting
+// material theme configuration
 const theme = createMuiTheme({
 	palette: {
 		primary: {
@@ -36,7 +36,7 @@ const appStyles = {
 };
 
 /**
- * app container
+ * App Container
  * @returns {*}
  * @constructor
  */

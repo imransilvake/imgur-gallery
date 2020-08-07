@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { original } from 'immer';
 
 // app
-import { addMatrixParamsToUrl, addPathParams, addKeyValues, addQueryParamsToUrl, addHeaders } from './proxy-options';
+import { addKeyValues, addQueryParamsToUrl, addHeaders } from './proxy-options';
 
 // initial state
 export const initialState = {
@@ -25,10 +25,11 @@ const proxySlice = createSlice({
 			const oldState = original(state.response);
 			const newData = (oldState && oldState.data) ? [...oldState.data, ...payload.data] : payload.data;
 
-			state.finished = payload.data.length === 0;
+			state.finished = payload.data && payload.data.length === 0;
 			state.loading = false;
 			state.response = {
-				...payload, data: newData
+				...payload,
+				data: newData
 			};
 			state.errors = null;
 		},
@@ -65,22 +66,12 @@ export const fetchApi = (api, payload) => {
 		// query params
 		let url = api;
 		if (payload['queryParams']) {
-			url = `${addQueryParamsToUrl(api, payload['queryParams'])}`;
-		}
-
-		// path params
-		if (payload['pathParams']) {
-			url = `${addPathParams(url, payload['pathParams'])}`;
+			url = `${addQueryParamsToUrl(url, payload['queryParams'])}`;
 		}
 
 		// key values
 		if (payload['keyValues']) {
 			url = `${addKeyValues(url, payload['keyValues'])}`;
-		}
-
-		// matrix params
-		if (payload['matrixParams']) {
-			url = `${addMatrixParamsToUrl(url, payload['matrixParams'])}`;
 		}
 
 		// api call
