@@ -11,6 +11,7 @@ import ScrollTop from '../../../assets/svg/scroll-top.svg';
  * @constructor
  */
 const ScrollTopTop = () => {
+	// hook
 	const [scrollView, setScrollView] = useState(false);
 
 	useEffect(() => {

@@ -1,16 +1,20 @@
 // react
 import React from 'react';
 
-// app
-import './Gallery-Modal.scss';
-import Loader from '../../../../assets/svg/loader.svg';
+// material
 import Dialog from '@material-ui/core/Dialog';
 import Tooltip from '@material-ui/core/Tooltip';
+
+// font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons/faArrowUp';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons/faArrowDown';
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+
+// app
+import './Gallery-Modal.scss';
+import Loader from '../../../../assets/svg/loader.svg';
 
 /**
  * Modal window for gallery items

@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { proxySelector, fetchApi } from '../../../slices/proxy/proxy';
 import { gallerySelector, galleryNextPage } from '../../../slices/gallery/gallery';
 
+// material
+import { Container } from '@material-ui/core';
+
 // app
 import './Gallery-List.scss';
 import Loader from '../../../../assets/images/loader.gif';
 import { AppServices } from '../../../../app.config';
 import GalleryModal from '../gallery-modal/Gallery-Modal';
 import LazyLoadImage from '../../../components/lazy-load-image/Lazy-Load-Image';
-import { Container } from '@material-ui/core';
 
 /**
  * Display gallery list
@@ -77,12 +79,15 @@ const GalleryList = () => {
 
 	/**
 	 * display gallery images
-	 * note: there are sometimes same post repeated more than once so therefore we can't use item['id'] as a unique key.
-	 * therefore it is ok to use combination of (item['id'] and index) to stop unnecessary renders
+	 *
+	 * note:
+	 * some gallery items are repeating so we can't use item['id'] as a unique key.
+	 * the order of gallery items is not changing.
+	 * therefore it is fine to use index as key to stop unnecessary renders
 	 */
 	const displayGallery = () => {
 		// gallery
-		if (response && response && response['data']) {
+		if (response && response['data']) {
 			return (
 				<div className="ig-grid ig-items">
 					{response['data'].map((item, index) => (

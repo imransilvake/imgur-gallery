@@ -12,10 +12,12 @@ import './Lazy-Load-Image.scss';
  * @constructor
  */
 const LazyLoadImage = ({ src, alt }) => {
+	// hooks
 	const [showImage, setShowImage] = useState(false);
 	const placeHolderRef = useRef(null);
 
 	useEffect(() => {
+		// intersection observer
 		const io = new IntersectionObserver((entries, imgObserver) => {
 			entries.forEach((entry) => {
 				// return when not intersecting

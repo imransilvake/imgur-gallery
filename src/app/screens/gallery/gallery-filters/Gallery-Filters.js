@@ -6,14 +6,16 @@ import { useDispatch } from 'react-redux';
 import { galleryFilters, galleryReset, initialState, SECTION_DEFAULT } from '../../../slices/gallery/gallery';
 import { proxyReset } from '../../../slices/proxy/proxy';
 
-// app
-import './Gallery-Filters.scss';
+// material
 import Container from '@material-ui/core/Container';
 import MenuItem from '@material-ui/core/MenuItem';
 import Switch from '@material-ui/core/Switch';
 import Select from '@material-ui/core/Select';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
+
+// app
+import './Gallery-Filters.scss';
 
 /**
  * Filters for Imgur gallery

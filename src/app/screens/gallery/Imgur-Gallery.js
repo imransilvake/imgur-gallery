@@ -2,8 +2,6 @@
 import React from 'react';
 
 // app
-import './Imgur-Gallery.scss';
-import Logo from '../../../assets/svg/logo.svg';
 import GalleryFilters from './gallery-filters/Gallery-Filters';
 import GalleryList from './gallery-list/Gallery-List';
 import ScrollTopTop from '../../components/scroll-to-top/Scroll-To-Top';
@@ -16,11 +14,6 @@ import ScrollTopTop from '../../components/scroll-to-top/Scroll-To-Top';
 const ImgurGallery = () => {
 	return (
 		<section className="ig-wrapper">
-			{/* Header */}
-			<header className="ig-header">
-				<img src={Logo} alt="app-logo" />
-			</header>
-
 			{/* Gallery Filters */}
 			<GalleryFilters />
 
