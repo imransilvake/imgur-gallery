@@ -30,10 +30,7 @@ const GalleryList = () => {
 
 	useEffect(() => {
 		// fetch api
-		dispatch(fetchApi(
-			AppServices.GALLERY.FETCH.URL,
-			galleryParams
-		));
+		dispatch(fetchApi(AppServices.GALLERY.FETCH.URL, galleryParams));
 	}, [dispatch, galleryParams]);
 
 	/**
@@ -46,11 +43,14 @@ const GalleryList = () => {
 		if (loading) return;
 
 		// disconnect observer
-		if (observer.current && observer.current.root !== undefined) observer.current.disconnect();
+		if (observer.current && observer.current.root !== undefined) {
+			observer.current.disconnect();
+		}
 
-		// observer
+		// intersection observer
 		observer.current = new IntersectionObserver((entries) => {
 			if (entries[0].isIntersecting && !finished) {
+				// call next set of items
 				dispatch(galleryNextPage());
 			}
 		});
