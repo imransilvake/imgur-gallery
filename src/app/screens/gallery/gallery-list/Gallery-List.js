@@ -39,17 +39,19 @@ const GalleryList = () => {
 	 */
 	const observer = useRef();
 	const lastItemFromGalleryRef = useCallback((node) => {
-		// skip if loading
-		if (loading) return;
+		// skip:
+		// 1) if loading
+		// 2) when all data is loaded
+		if (loading || finished) return;
 
-		// disconnect observer
+		// disconnect the observer
 		if (observer.current && observer.current.root !== undefined) {
 			observer.current.disconnect();
 		}
 
-		// intersection observer
+		// reconnect the observer
 		observer.current = new IntersectionObserver((entries) => {
-			if (entries[0].isIntersecting && !finished) {
+			if (entries[0].isIntersecting) {
 				// call next set of items
 				dispatch(galleryNextPage());
 			}
@@ -114,6 +116,7 @@ const GalleryList = () => {
 		// error
 		return errors && (
 			<div className="ig-error">
+				{ !errors['status'] && (<h3>Unknown Error</h3>) }
 				{ errors['status'] && (<h3>{ errors['status'] }</h3>) }
 				{ errors['data'] && errors['data']['error'] && (<p>{ errors['data']['error'] }</p>) }
 			</div>
@@ -129,7 +132,7 @@ const GalleryList = () => {
 
 				{/* Loader */}
 				{!finished && (
-					<div className="ig-load-more">
+					<div className={`ig-load-more ${response && response['data'] ? 'ig-top-margin' : null}`}>
 						<img src={Loader} alt="load more" />
 					</div>
 				)}
