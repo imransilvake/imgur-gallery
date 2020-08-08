@@ -42,11 +42,11 @@ const GalleryFilters = () => {
 			return;
 		}
 
-		// reset gallery state
-		dispatch(galleryReset());
-
 		// reset proxy state
 		dispatch(proxyReset());
+
+		// reset gallery state
+		dispatch(galleryReset());
 
 		// apply filters
 		dispatch(galleryFilters(state));

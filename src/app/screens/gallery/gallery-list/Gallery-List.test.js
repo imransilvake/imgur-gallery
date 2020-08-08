@@ -81,18 +81,18 @@ test('[API] call "fetchApi()" multiple times and validate if old data persists',
 		[JSON.stringify(mockSuccessResponse()), {}]
 	);
 
-	// payload
-	const payload = store.getState().gallery.galleryParams;
-
 	// reset proxy state
 	store.dispatch(proxyReset());
 
+	// payload
+	const payload = store.getState().gallery.galleryParams;
+
 	// fetch api and validate result
 	return store.dispatch(fetchApi(AppServices.GALLERY.FETCH.URL, payload)).then(() => {
-		const { data } = store.getState()['proxy']['response'];
+		const response = store.getState()['proxy']['response']['data'];
 		return store.dispatch(fetchApi(AppServices.GALLERY.FETCH.URL, payload)).then(() => {
-			const data2 = store.getState()['proxy']['response']['data'];
-			expect(data2.length).toBeGreaterThanOrEqual(data.length);
+			const response2 = store.getState()['proxy']['response']['data'];
+			expect(response2.length).toBeGreaterThanOrEqual(response.length);
 		});
 	});
 });
