@@ -3,8 +3,10 @@ import ENV from './environment';
 
 // general
 export const AppOptions = {
-	CLIENT_NAME: 'eurowings-challenge',
-	CLIENT_ID: 'b6667866f8e791a'
+	IMGUR: {
+		CLIENT_NAME: 'eurowings-challenge',
+		CLIENT_ID: 'b6667866f8e791a'
+	}
 };
 
 // services
@@ -19,7 +21,7 @@ export const AppServices = {
 // headers for a request to backend
 export const RequestHeaders = {
 	get: {
-		authorization: `Client-ID ${AppOptions.CLIENT_ID}`
+		authorization: `Client-ID ${AppOptions.IMGUR.CLIENT_ID}`
 	},
 	post: {
 		Accept: 'application/json',

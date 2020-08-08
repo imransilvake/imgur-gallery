@@ -1,9 +1,11 @@
+// add ellipses (...)
 .ig-ellipses {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 
+// center: vertically + horizontally
 .ig-vh-center {
 	left: 50%;
 	position: absolute;

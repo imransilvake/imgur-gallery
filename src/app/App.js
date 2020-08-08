@@ -1,6 +1,6 @@
 // react
 import React, { Suspense } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 // material
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -9,7 +9,9 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 // app
 import './App.scss';
 import Logo from '../assets/svg/logo.svg';
+import ENV from '../environment';
 import AppRouter from './AppRouter';
+import ScrollTopTop from './components/scroll-to-top/Scroll-To-Top';
 
 // material theme configuration
 const theme = createMuiTheme({
@@ -48,7 +50,9 @@ const App = () => {
 					<BrowserRouter>
 						{/* Header */}
 						<header className="ig-header">
-							<img src={Logo} alt="app-logo" />
+							<Link to={ENV().ROUTING.HOME}>
+								<img src={Logo} alt="app-logo" />
+							</Link>
 						</header>
 
 						{/* Router */}
@@ -57,6 +61,9 @@ const App = () => {
 						{/* Footer */}
 					</BrowserRouter>
 				</Suspense>
+
+				{/* Scroll To Top */}
+				<ScrollTopTop />
 			</MuiThemeProvider>
 		</section>
 	);

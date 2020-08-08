@@ -4,7 +4,6 @@ import React from 'react';
 // app
 import GalleryFilters from './gallery-filters/Gallery-Filters';
 import GalleryList from './gallery-list/Gallery-List';
-import ScrollTopTop from '../../components/scroll-to-top/Scroll-To-Top';
 
 /**
  * Imgur Gallery
@@ -19,9 +18,6 @@ const ImgurGallery = () => {
 
 			{/* Gallery List */}
 			<GalleryList />
-
-			{/* Scroll To Top */}
-			<ScrollTopTop />
 		</section>
 	);
 };
