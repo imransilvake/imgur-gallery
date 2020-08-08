@@ -1,11 +1,11 @@
 .ig-grid {
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 	// media
 	@media (min-width: 993px) {
-		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
 	}
 
 	@media (min-width: 1201px) {
