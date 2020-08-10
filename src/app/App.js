@@ -11,7 +11,7 @@ import './App.scss';
 import Logo from '../assets/svg/logo.svg';
 import ENV from '../environment';
 import AppRouter from './AppRouter';
-import ScrollTopTop from './components/scroll-to-top/Scroll-To-Top';
+import ScrollToTop from './components/scroll-to-top/Scroll-To-Top';
 
 // material theme configuration
 const theme = createMuiTheme({
@@ -63,7 +63,7 @@ const App = () => {
 				</Suspense>
 
 				{/* Scroll To Top */}
-				<ScrollTopTop />
+				<ScrollToTop />
 			</MuiThemeProvider>
 		</section>
 	);

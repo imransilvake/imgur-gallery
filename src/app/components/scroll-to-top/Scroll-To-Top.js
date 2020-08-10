@@ -10,7 +10,7 @@ import ScrollTop from '../../../assets/svg/scroll-top.svg';
  * @returns {*}
  * @constructor
  */
-const ScrollTopTop = () => {
+const ScrollToTop = () => {
 	// hook
 	const [scrollView, setScrollView] = useState(false);
 
@@ -59,4 +59,4 @@ const ScrollTopTop = () => {
 		</div>
 	);
 };
-export default ScrollTopTop;
+export default ScrollToTop;
