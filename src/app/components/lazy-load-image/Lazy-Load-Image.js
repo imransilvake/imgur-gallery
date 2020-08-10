@@ -31,7 +31,7 @@ const LazyLoadImage = ({ src, alt }) => {
 			});
 		});
 
-		// disconnect
+		// observe the node
 		io.observe(placeHolderRef.current);
 
 		// cleanup
