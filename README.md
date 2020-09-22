@@ -32,7 +32,7 @@ https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showVir
     - [X] Filter based on a window and sort parameters
 
 
-## Unit Test
+## Unit Tests
 <p align="left">
 	<img src="unit-test.png" width="50%">
 </p>
